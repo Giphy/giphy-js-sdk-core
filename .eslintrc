@@ -1,0 +1,18 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "parser": "babel-eslint",
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-irregular-whitespace ": 0,
+        "no-mixed-spaces-and-tabs": 1,
+        "eqeqeq": 1,
+        "no-console": 0,
+       	"camelcase": 1,
+		"comma-dangle": 2,
+		"quotes": 0
+    }
+}
