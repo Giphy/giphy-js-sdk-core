@@ -1,8 +1,6 @@
 var _ = require('lodash');
 
-class Image {
-
-	constructor(data) {
+function Image(data) {
 		// String url;
 		// String width;
 		// String height;
@@ -12,11 +10,9 @@ class Image {
 		// String webp;
 		// String webp_size;
 
-		_.forOwn(data, (val, key) => {
-			this[key] = val;
-		})
-	}
+		//MANIPULATE FORMAT HERE IF NECESSARY
 
+	return data
 }
 
 module.exports = Image
