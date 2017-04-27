@@ -1,0 +1,14 @@
+function Category(data) {
+  //String String name;
+  //String String name_encoded;
+  //String gif;
+  // Array subcategories;
+
+  //MANIPULATE FORMAT HERE IF NECESSARY
+  if (data["subcategories"]) {
+    data["subcategories"] = Category(data["subcategories"])
+  }
+  return data
+}
+
+module.exports = Category
