@@ -309,6 +309,25 @@ class GphApiClient {
 
     return RequestHandler(data, cb);
   }
+
+  /**
+  * @return a list of term suggestions
+  * @param term a term to receive back similar terms
+  * @param callback (optional) callback will default to a promise if nothing is passed in
+  */
+  termSuggestions(term, cb) {
+
+    const data = {
+      //grabs the correct endpoint from an object
+      url: `${serverUrl}/v1/queries/suggest/${term}`,
+      method: 'get',
+      params: _.extend({
+        api_key: this.apiKey
+      })
+    }
+
+    return RequestHandler(data, cb);
+  }
 }
 
 var networkingClient = new GphApiClient();

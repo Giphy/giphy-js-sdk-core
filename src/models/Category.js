@@ -1,11 +1,12 @@
 function Category(data) {
-
-  //String String name;
-  //String String name_encoded;
-  //String gif;
-  // Array subcategories;
-
+  /*	
+  String String name;
+  String String name_encoded;
+  Media gif;
+  Array subcategories;
+  */
   //MANIPULATE FORMAT HERE IF NECESSARY
+
   if (data["subcategories"]) {
     data["subcategories"] = Category(data["subcategories"])
   }

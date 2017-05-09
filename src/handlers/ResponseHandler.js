@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var Gif = require('../models/Gif');
+var Media = require('../models/Media');
 var Category = require('../models/Category');
 
 function ResponseHandler(err, res, resolve, reject, url) {
@@ -47,7 +47,7 @@ function formatApiReturn(body, requestURL) {
     });
   } else if (Array.isArray(body.data)) {
     modifiedData = _.map(body.data, (item) => {
-      return new Gif(item);
+      return new Media(item);
     });
   } else {
     modifiedData = new Gif(body.data);
