@@ -2,8 +2,7 @@
 
 The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/GiphyAPI).
 
-[![](https://img.shields.io/badge/OS%20X-10.9%2B-lightgrey.svg)]()
-[![](https://img.shields.io/badge/iOS-7.0%2B-lightgrey.svg)]()
+
 
 [Giphy](https://www.giphy.com) is the best way to search, share, and discover GIFs on the Internet. Similar to the way other search engines work, the majority of our content comes from indexing based on the best and most popular GIFs and search terms across the web. We organize all those GIFs so you can find the good content easier and share it out through your social channels. We also feature some of our favorite GIF artists and work with brands to create and promote their original GIF content.
 
