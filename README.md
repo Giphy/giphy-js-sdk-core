@@ -46,25 +46,3 @@ npm install --save giphy-web-sdk-core
 var GphApiClient = require('giphy-web-sdk-core')
 client = GphApiClient("YOUR_API_KEY")
 ```
-
-### Search Gifs / Stickers
-
-```javascript
-/// Simple Gif Search
-let _ = client.search("ryan gosling") { (response, error) in
-
-    if let error = error as NSError? {
-        // Do what you want to do with the error
-    }
-
-    if let response = response, let data = response.data, let pagination = response.pagination {
-        print(response.meta)
-        print(pagination)
-        for result in data {
-            print(result)
-        }
-    } else {
-        print("No Result Found")
-    }
-}
-```
