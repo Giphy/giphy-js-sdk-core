@@ -37,7 +37,7 @@ The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/
 Add the JS to your project..
 
 ```
-blah
+npm install --save giphy-web-sdk-core
 ```
 
 ### Initialize Giphy SDK
