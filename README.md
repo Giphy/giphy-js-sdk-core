@@ -32,7 +32,7 @@ The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/
 
 # Setup
 
-### React / CDN ...
+### Require Module
 
 Add the JS to your project..
 
