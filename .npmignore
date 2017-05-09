@@ -1,1 +1,8 @@
 src/
+.babelrc
+.eslintrc
+.npmignore
+gulpfile.js
+test.js
+tester.js
+out/

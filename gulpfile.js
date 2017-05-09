@@ -26,10 +26,10 @@ gulp.task('prettify', function() {
 gulp.task("lint", lint);
 
 gulp.task("watch", ["default"], function() {
-  gulp.watch("./bin/**/*.js", ["lint"]);
+  gulp.watch("./src/**/*.js", ["lint"]);
 });
 
+//build this for npm
 
-gulp.task("default", ["lint"]);
 
-
+gulp.task("default", ["lint", "prettify"]);

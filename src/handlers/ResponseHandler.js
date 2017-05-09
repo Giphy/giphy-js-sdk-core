@@ -18,7 +18,6 @@ function ResponseHandler(err, res, resolve, reject, url) {
   if (res && res.status >= 200 && res.status < 300) {
     printResults('info', `result handle api call: ${res.req.url}`, res.body);
     if (res.status === 204) return resolve(res); //For successful DELETE requests
-
     var constructorModifiedData = formatApiReturn(res.body, url);
     //pass through one of the four models
     resolve(constructorModifiedData);
@@ -34,7 +33,7 @@ function ResponseHandler(err, res, resolve, reject, url) {
 
 function printResults(kind, msg, result) {
   if (process.env.NODE_ENV !== 'test') {
-    console[kind](msg, result);
+    // console[kind](msg, result);
   }
 }
 
@@ -53,9 +52,9 @@ function formatApiReturn(body, requestURL) {
   } else {
     modifiedData = new Gif(body.data);
   }
-
   var responseObject = {};
-  responseObject.data = modifiedData
+  responseObject.data = modifiedData;
+  responseObject.meta = body.meta;
 
   // var formattedData = JSON.stringify(modifiedData, null, 2);
   return responseObject

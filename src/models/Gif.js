@@ -11,10 +11,9 @@ function Gif(data) {
   // String mp4_size;
   // String webp;
   // String webp_size;
-
   //MANIPULATE FORMAT HERE IF NECESSARY
   if (data["images"]) {
-    data["images"] = Images(data["images"])
+    data["images"] = Images(data["images"], data.id)
   } else if (data["user"]) {
     data["user"] = User(data["user"])
   }

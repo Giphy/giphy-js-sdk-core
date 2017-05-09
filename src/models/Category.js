@@ -1,4 +1,5 @@
 function Category(data) {
+
   //String String name;
   //String String name_encoded;
   //String gif;

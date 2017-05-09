@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-function Image(data) {
+function Image(data, id) {
   // String url;
   // String width;
   // String height;
@@ -9,8 +9,8 @@ function Image(data) {
   // String mp4_size;
   // String webp;
   // String webp_size;
-
   //MANIPULATE FORMAT HERE IF NECESSARY
+  data.id = id
 
   return data
 }
