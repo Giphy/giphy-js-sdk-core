@@ -43,7 +43,8 @@ npm install --save giphy-web-sdk-core
 ### Initialize Giphy SDK
 
 ```javascript
-let client = GPHClient(apiKey: "YOUR_API_KEY")
+var GphApiClient = require('giphy-web-sdk-core')
+client = GphApiClient("YOUR_API_KEY")
 ```
 
 ### Search Gifs / Stickers
