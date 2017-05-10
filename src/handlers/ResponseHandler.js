@@ -3,19 +3,19 @@ var responseFormatter = require('../utils/responseFormatter');
 
 //handle status code and resolve/reject promise
 function ResponseHandler(err, res, resolve, reject, endpoint) {
+  //handle error status code
   if (err && err.status) {
     if (res.status >= 400 && res.status <= 502) {
       reject(err.status)
     }
   }
-
+  //deal with successful status code
   if (res && res.status >= 200 && res.status < 300) {
-    if (res.status === 204) return resolve(res); //For successful DELETE requests
+    //pass the api response into a formatter to ensure it is to spec
     var constructorModifiedData = formatApiReturn(res.body, endpoint);
-    //pass through one of the four models
     resolve(constructorModifiedData);
-
   } else {
+    //reject promise with unexpected error
     reject({
       status: res && res.status ? res.status : 'unknown api error',
       error: res && res.status ? res.status : 'unknown api error',

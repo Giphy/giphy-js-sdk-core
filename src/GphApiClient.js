@@ -33,6 +33,7 @@ class GphApiClient {
    * @param callback (optional) callback will default to a promise if nothing is passed in
    */
   search(type, params, cb) {
+
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/search`,
@@ -248,5 +249,3 @@ class GphApiClient {
 module.exports = function(apiKey) {
   return new GphApiClient(apiKey);
 }
-
-// module.exports = networkingClient;
