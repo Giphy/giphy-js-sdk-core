@@ -1,7 +1,7 @@
 var _ = require('lodash');
 var Image = require('./Image');
 
-function Images(data, id) {
+function Images(data, id, flag) {
   /* 
    Image fixed_height;
    Image fixed_height_still;
@@ -27,9 +27,9 @@ function Images(data, id) {
    Image preview_webp;
   */
   // MANIPULATE FORMAT HERE IF NECESSARY
-  
+
   _.forOwn(data, (val, key) => {
-    data[key] = Image(val, id);
+    data[key] = Image(val, key, id);
   })
   data.id = id;
   return data

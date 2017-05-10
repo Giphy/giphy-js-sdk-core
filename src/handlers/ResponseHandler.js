@@ -1,16 +1,12 @@
 var _ = require('lodash');
-var Media = require('../models/Media');
-var Category = require('../models/Category');
+var Media = require('../utils/Media');
+var Category = require('../utils/Category');
+var TermSuggestion = require('../utils/TermSuggestion');
 
 function ResponseHandler(err, res, resolve, reject, url) {
-
   if (err && err.status) {
     printResults('warn', `network err api ${res.req.method}: `, err);
     if (res.status >= 400 && res.status <= 502) {
-      resolve({
-        error: res.body || 'error'
-      });
-    } else {
       reject(err.status)
     }
   }
@@ -43,20 +39,27 @@ function formatApiReturn(body, requestURL) {
   //if we are returning categories 
   if (requestURL.includes('categories')) {
     modifiedData = _.map(body.data, (item) => {
-      return new Category(item);
+      return Category(item);
     });
+  } else if (requestURL.includes('suggest')){
+    modifiedData = _.map(body.data, (item) => {
+      return TermSuggestion(item);
+    });
+  } else if (requestURL.includes('random')){
+      modifiedData = Media(body.data, 'random');
+
   } else if (Array.isArray(body.data)) {
     modifiedData = _.map(body.data, (item) => {
-      return new Media(item);
+      return Media(item);
     });
   } else {
-    modifiedData = new Gif(body.data);
+    //single object
+    modifiedData = Media(body.data);
   }
   var responseObject = {};
   responseObject.data = modifiedData;
   responseObject.meta = body.meta;
 
-  // var formattedData = JSON.stringify(modifiedData, null, 2);
   return responseObject
 
 }

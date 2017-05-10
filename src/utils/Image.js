@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-function Image(data, id) {
+function Image(data, key, id) {
   /*
    String url;
    String width;
@@ -13,8 +13,8 @@ function Image(data, id) {
   */
   //MANIPULATE FORMAT HERE IF NECESSARY
   
-  data.id = id
-
+  data.media_id = id;
+  data.rendition_type = key;
   return data
 }
 

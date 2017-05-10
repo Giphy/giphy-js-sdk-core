@@ -9,8 +9,8 @@ var serverUrl = "https://api.giphy.com";
  */
 class GphApiClient {
 
-  constructor() {
-    this.apiKey = undefined;
+  constructor(apiKey) {
+    this.apiKey = apiKey;
   }
 
   /**
@@ -22,6 +22,7 @@ class GphApiClient {
 
   /**
    * @return a list of gifs that match the inputted search query
+   * @param type specify whether it is a gif or a sticker
    * @param params an object containing parameters
    * @param params.q search query term or phrase
    * @param params.limit (optional) number of results to return, maximum 100. Default 25.
@@ -31,10 +32,10 @@ class GphApiClient {
    * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
    * @param callback (optional) callback will default to a promise if nothing is passed in
    */
-  searchGifs(params, cb) {
+  search(type, params, cb) {
     const data = {
       //grabs the correct endpoint from an object
-      url: `${serverUrl}/v1/gifs/search`,
+      url: `${serverUrl}/v1/${type}/search`,
       method: 'get',
       params: _.extend({
         api_key: this.apiKey
@@ -44,40 +45,17 @@ class GphApiClient {
     return RequestHandler(data, cb);
   }
 
-  /**
-   * @return a list of gifs that match the inputted search query
-   * @param params an object containing parameters
-   * @param params.q search query term or phrase
-   * @param params.limit (optional) number of results to return, maximum 100. Default 25.
-   * @param params.offset(optional) results offset, defaults to 0.
-   * @param params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
-   * @param params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported languages here
-   * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
-   */
-  searchStickers(params, cb) {
-    const data = {
-      //grabs the correct endpoint from an object
-      url: `${serverUrl}/v1/stickers/search`,
-      method: 'get',
-      params: _.extend({
-        api_key: this.apiKey
-      }, params)
-    }
-
-    return RequestHandler(data, cb);
-  }
-
-  /**
+    /**
    * @return a list of currently trending gifs
    * @param params an object containing parameters
+   * @param type specify whether it is a gif or a sticker
    * @param params.limit (optional) number of results to return, maximum 100. Default 25.
    * @param params.offset(optional) results offset, defaults to 0.
    * @param params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
    * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
    * @param callback (optional) callback will default to a promise if nothing is passed in
    */
-  trendingGifs(params, cb) {
+  trending(type, params, cb) {
 
     const data = {
       //grabs the correct endpoint from an object
@@ -91,63 +69,20 @@ class GphApiClient {
     return RequestHandler(data, cb);
   }
 
-
-    /**
-   * @return a list of currently trending gifs
-   * @param params an object containing parameters
-   * @param params.limit (optional) number of results to return, maximum 100. Default 25.
-   * @param params.offset(optional) results offset, defaults to 0.
-   * @param params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
-   * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
-   */
-  trendingStickers(params, cb) {
-
-    const data = {
-      //grabs the correct endpoint from an object
-      url: `${serverUrl}/v1/stickers/trending`,
-      method: 'get',
-      params: _.extend({
-        api_key: this.apiKey
-      }, params)
-    }
-
-    return RequestHandler(data, cb);
-  }
-
-  /**
-   * @return a single gif
-   * @param params an object containing parameters
-   * @param params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code
-   * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
-   */
-  translateGifs(params, cb) {
-
-    const data = {
-      //grabs the correct endpoint from an object
-      url: `${serverUrl}/v1/gifs/translate`,
-      method: 'get',
-      params: _.extend({
-        api_key: this.apiKey
-      }, params)
-    }
-
-    return RequestHandler(data, cb);
-  }
-
    /**
    * @return a single gif
+   * @param type specify whether it is a gif or a sticker
    * @param params an object containing parameters
+   * @param params.s (optional) the term you would lole to have translated
    * @param params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code
    * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
    * @param callback (optional) callback will default to a promise if nothing is passed in
    */
-  translateStickers(params, cb) {
+  translate(type, params, cb) {
 
     const data = {
       //grabs the correct endpoint from an object
-      url: `${serverUrl}/v1/stickers/translate`,
+      url: `${serverUrl}/v1/${type}/translate`,
       method: 'get',
       params: _.extend({
         api_key: this.apiKey
@@ -159,39 +94,18 @@ class GphApiClient {
 
   /**
    * @return a random gif
+   * @param type specify whether it is a gif or a sticker
    * @param params an object containing parameters
    * @param params.tag (optional) the GIF tag to limit randomness by
    * @param params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
    * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
    * @param callback (optional) callback will default to a promise if nothing is passed in
    */
-  randomGifs(params, cb) {
+  random(type, params, cb) {
 
     const data = {
       //grabs the correct endpoint from an object
-      url: `${serverUrl}/v1/gifs/random`,
-      method: 'get',
-      params: _.extend({
-        api_key: this.apiKey
-      }, params)
-    }
-
-    return RequestHandler(data, cb);
-  }
-
-  /**
-   * @return a random gif
-   * @param params an object containing parameters
-   * @param params.tag (optional) the GIF tag to limit randomness by
-   * @param params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
-   * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
-   */
-  randomStickers(params, cb) {
-
-    const data = {
-      //grabs the correct endpoint from an object
-      url: `${serverUrl}/v1/stickers/random`,
+      url: `${serverUrl}/v1/${type}/random`,
       method: 'get',
       params: _.extend({
         api_key: this.apiKey
@@ -206,7 +120,7 @@ class GphApiClient {
    * @param id ID associated with a specific gif
    * @param callback (optional) callback will default to a promise if nothing is passed in
    */
-  getGif(id, cb) {
+  gifByID(id, cb) {
 
     const data = {
       //grabs the correct endpoint from an object
@@ -226,7 +140,7 @@ class GphApiClient {
    * @param params.ids (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
    * @param callback (optional) callback will default to a promise if nothing is passed in
    */
-  getGifs(params, cb) {
+  gifsByIDs(params, cb) {
 
     //separate teh array into a string of separated values as superagent needs special formatting for array params
     params.ids = params.ids.join(',');
@@ -247,6 +161,7 @@ class GphApiClient {
    * @return a list of categories
    * @param type gif or a sticker
    * @param params an object containing parameters
+   * @param params.sort (optional)
    * @param params.offset (optional) results offset, defaults to 0.
    * @param params.limit (optional) number of results to return, maximum 100. Default 25.
    * @param callback (optional) callback will default to a promise if nothing is passed in
@@ -330,6 +245,18 @@ class GphApiClient {
   }
 }
 
-var networkingClient = new GphApiClient();
-module.exports = networkingClient;
+module.exports = function(apiKey) {
+  return new GphApiClient(apiKey);
+}
+
+// module.exports = networkingClient;
+
+
+
+
+
+
+
+
+
 

@@ -2,6 +2,7 @@ var request = require('superagent');
 var ResponseHandler = require('./ResponseHandler');
 
 function RequestHandler(vals, cb) {
+  console.log(vals)
   function req(args, cb) {
     var canceled = false;
 
