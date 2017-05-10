@@ -42,10 +42,10 @@ class GphApiClient {
       }, params)
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'search', cb);
   }
 
-    /**
+  /**
    * @return a list of currently trending gifs
    * @param params an object containing parameters
    * @param type specify whether it is a gif or a sticker
@@ -66,10 +66,10 @@ class GphApiClient {
       }, params)
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'trending', cb);
   }
 
-   /**
+  /**
    * @return a single gif
    * @param type specify whether it is a gif or a sticker
    * @param params an object containing parameters
@@ -89,7 +89,7 @@ class GphApiClient {
       }, params)
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'translate', cb);
   }
 
   /**
@@ -112,7 +112,7 @@ class GphApiClient {
       }, params)
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'random', cb);
   }
 
   /**
@@ -131,7 +131,7 @@ class GphApiClient {
       }
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'gifByID', cb);
   }
 
   /**
@@ -154,7 +154,7 @@ class GphApiClient {
       }, params)
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'gifsByIDs', cb);
   }
 
   /**
@@ -177,17 +177,17 @@ class GphApiClient {
       }, params)
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'categoriesForGifs', cb);
   }
 
   /**
-  * @return a list of subcategories for a category
-  * @param subcategory subcategory name
-  * @param params an object containing parameters
-  * @param params.limit
-  * @param params.offset
-  * @param callback (optional) callback will default to a promise if nothing is passed in
-  */
+   * @return a list of subcategories for a category
+   * @param subcategory subcategory name
+   * @param params an object containing parameters
+   * @param params.limit
+   * @param params.offset
+   * @param callback (optional) callback will default to a promise if nothing is passed in
+   */
   subCategoriesForGifs(subcategory, params, cb) {
 
     const data = {
@@ -199,18 +199,18 @@ class GphApiClient {
       }, params)
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'subCategoriesForGifs', cb);
   }
 
   /**
-  * @return a list of gifs
-  * @param params an object containing parameters
-  * @param category category name
-  * @param subcategory subcategory name
-  * @param params.limit
-  * @param params.offset
-  * @param callback (optional) callback will default to a promise if nothing is passed in
-  */
+   * @return a list of gifs
+   * @param params an object containing parameters
+   * @param category category name
+   * @param subcategory subcategory name
+   * @param params.limit
+   * @param params.offset
+   * @param callback (optional) callback will default to a promise if nothing is passed in
+   */
   gifsByCategories(category, subcategory, params, cb) {
 
     const data = {
@@ -222,14 +222,14 @@ class GphApiClient {
       }, params)
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'gifsByCategories', cb);
   }
 
   /**
-  * @return a list of term suggestions
-  * @param term a term to receive back similar terms
-  * @param callback (optional) callback will default to a promise if nothing is passed in
-  */
+   * @return a list of term suggestions
+   * @param term a term to receive back similar terms
+   * @param callback (optional) callback will default to a promise if nothing is passed in
+   */
   termSuggestions(term, cb) {
 
     const data = {
@@ -241,7 +241,7 @@ class GphApiClient {
       })
     }
 
-    return RequestHandler(data, cb);
+    return RequestHandler(data, 'termSuggestions', cb);
   }
 }
 
@@ -250,13 +250,3 @@ module.exports = function(apiKey) {
 }
 
 // module.exports = networkingClient;
-
-
-
-
-
-
-
-
-
-
