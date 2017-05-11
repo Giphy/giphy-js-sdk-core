@@ -1,8 +1,7 @@
 var request = require('superagent');
 var ResponseHandler = require('./ResponseHandler');
 
-function RequestHandler(vals, cb) {
-  console.log(vals)
+function RequestHandler(vals, endpoint, cb) {
   function req(args, cb) {
     var canceled = false;
 
@@ -11,8 +10,8 @@ function RequestHandler(vals, cb) {
         .set('Content-Type', 'application/json')
         .query(args.params)
         .end(function(err, res) { //calling the end function will send the actual request          
-          if(canceled === true){
-            return 
+          if (canceled === true) {
+            return
           } else {
             ResponseHandler(err, res, (res) => {
               resolve(res);
@@ -24,17 +23,17 @@ function RequestHandler(vals, cb) {
               if (cb !== undefined) {
                 cb(null, err);
               }
-            }, args.url) //pass in args.url so you can determine before resolving the promise what request was just made
+            }, endpoint) //pass in args.url so you can determine before resolving the promise what request was just made
             // we pass the response to our helper method imported from ./helpers/
           }
         });
     })
-
-    constructedRequest.cancel = function(){
+    //allows users to cancel outgoing requests
+    constructedRequest.cancel = function() {
       canceled = true;
     }
 
-    return constructedRequest 
+    return constructedRequest
   }
 
   return req(vals, cb);
