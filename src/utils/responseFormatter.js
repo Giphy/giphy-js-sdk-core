@@ -57,16 +57,29 @@ function responseFormatter(data, endpoint) {
     case "random":
     case "gifByID":
     case "gifsByIDs":
-      _.forOwn(data.images, (image, key) => {
-        delete image.username;
-        image.media_id = data.id;
-        image.rendition_type = key;
+    case "gifsByCategories":
+      _.forOwn(data, (gif, key) => {
+        delete gif.username;
+        _.forOwn(gif.images, (image, key) => {
+          image.media_id = gif.id;
+          image.rendition_type = key;
+        });
       });
       return data
 
     case "categoriesForGifs":
+       _.forOwn(data, (category) => {
+        category.subcategories.forEach((subcategory) => {
+          subcategory.gif = null;
+          subcategory.subcategories = null;
+        })
+      });
+      return data
     case "subCategoriesForGifs":
-    case "gifsByCategories":
+      _.forOwn(data, (subcategory) => {
+        subcategory.subcategories = null
+      })
+      return data
     case "termSuggestions":
       return data
 

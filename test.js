@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 var GphApiClient = require('./src/GphApiClient')
 
 describe('SEARCH - gifs', function() {
-  var apiKey = "dc6zaTOxFJmzC";
+  var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -76,8 +76,8 @@ describe('SEARCH - gifs', function() {
 
 
 describe('SEARCH - stickers', function() {
-   var apiKey = "dc6zaTOxFJmzC";
-    var client = GphApiClient(apiKey);
+  var apiKey = "4OMJYpPoYwVpe";
+  var client = GphApiClient(apiKey);
 
 
 
@@ -152,7 +152,7 @@ describe('SEARCH - stickers', function() {
 });
 
 describe('TRENDING - gifs', function() {
-    var apiKey = "dc6zaTOxFJmzC";
+    var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -219,7 +219,7 @@ describe('TRENDING - gifs', function() {
 });
 
 describe('TRENDING - stickers', function() {
-  var apiKey = "dc6zaTOxFJmzC";
+  var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -286,7 +286,7 @@ describe('TRENDING - stickers', function() {
 });
 
 describe('TRANSLATE - gifs', function() {
-    var apiKey = "dc6zaTOxFJmzC";
+    var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -307,7 +307,7 @@ describe('TRANSLATE - gifs', function() {
 });
 
 describe('TRANSLATE - stickers', function(done) {
-   var apiKey = "dc6zaTOxFJmzC";
+   var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -329,7 +329,7 @@ describe('TRANSLATE - stickers', function(done) {
 });
 
 describe('RANDOM - gifs', function() {
-    var apiKey = "dc6zaTOxFJmzC";
+    var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -358,7 +358,7 @@ describe('RANDOM - gifs', function() {
 });
 
 describe('RANDOM - stickers', function() {
-   var apiKey = "dc6zaTOxFJmzC";
+   var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -388,7 +388,7 @@ describe('RANDOM - stickers', function() {
 });
 
 describe('GIF BY ID', function() {
-  var apiKey = "dc6zaTOxFJmzC";
+  var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -419,7 +419,7 @@ describe('GIF BY ID', function() {
 });
 
 describe('GIFS BY IDS', function() {
-  var apiKey = "dc6zaTOxFJmzC";
+  var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -461,7 +461,7 @@ describe('GIFS BY IDS', function() {
 });
 
 describe('CATEGORIES', function() {
-  var apiKey = "dc6zaTOxFJmzC";
+  var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -493,7 +493,7 @@ describe('CATEGORIES', function() {
 });
 
 describe('SUBCATEGORIES', function() {
-  var apiKey = "dc6zaTOxFJmzC";
+  var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
 
@@ -525,7 +525,7 @@ describe('SUBCATEGORIES', function() {
 
 
 describe('SUBCATEGORIES', function() {
-  var apiKey = "dc6zaTOxFJmzC";
+  var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
   it('PROMISE - returns an array of gifs', function(done) {
@@ -546,6 +546,41 @@ describe('SUBCATEGORIES', function() {
   it('CALLBACK - returns an array of gifs', function(done) {
     this.timeout(2000);
     client.gifsByCategories("tv", "'the office'", {}, function(response, err) {
+      if (err) done(err);
+      expect(Array.isArray(response.data)).to.equal(true);
+      expect(response.data.length).to.be.above(0);
+
+      response.data.forEach(function(category) {
+        expect(category.type).to.equal('gif')
+      });
+      done();
+    });
+  });
+});
+
+
+describe('TERM SUGGESTIONS', function() {
+  var apiKey = "4OMJYpPoYwVpe";
+  var client = GphApiClient(apiKey);
+
+  it('PROMISE - returns an array of gifs', function(done) {
+    this.timeout(2000);
+    client.termSuggestions("fake").then((response) => {
+      expect(Array.isArray(response.data)).to.equal(true);
+      expect(response.data.length).to.be.above(0);
+
+      response.data.forEach(function(category) {
+        expect(category.type).to.equal('gif')
+      });
+      done();
+    }).catch((err) => {
+      done(err);
+    })
+  });
+
+  it('CALLBACK - returns an array of gifs', function(done) {
+    this.timeout(2000);
+    client.termSuggestions("fake", function(response, err) {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);

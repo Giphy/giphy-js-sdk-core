@@ -6,7 +6,7 @@ function ResponseHandler(err, res, resolve, reject, endpoint) {
   //handle error status code
   if (err && err.status) {
     if (res.status >= 400 && res.status <= 502) {
-      reject(err.status)
+      reject(err)
     }
   }
   //deal with successful status code
