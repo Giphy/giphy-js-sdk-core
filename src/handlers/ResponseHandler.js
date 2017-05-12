@@ -33,7 +33,7 @@ var responseFormatter = require('../utils/responseFormatter');
 function ResponseHandler(err, res, resolve, reject, endpoint) {
   //handle error status code
   if (err && err.status) {
-      console.warn(`network err api ${res.req.method}: ${err}`);
+    console.warn(`network err api ${res.req.method}: ${err}`);
 
     if (res.status >= 400 && res.status <= 502) {
       reject({
@@ -65,7 +65,7 @@ function formatApiReturn(body, endpoint) {
   var modifiedData = responseFormatter(body.data, endpoint)
   responseObject.data = modifiedData;
   responseObject.meta = body.meta;
-  if(body.pagination){
+  if (body.pagination) {
     responseObject.pagination = body.pagination;
   }
   return responseObject
