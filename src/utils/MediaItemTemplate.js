@@ -1,4 +1,3 @@
-function Image(resp) {
 
 
 const template = {
@@ -259,7 +258,7 @@ const template = {
   "import_datetime": null, 
   "is_realtime": null
 }
-}
+
 
 module.exports = template
 

@@ -5,8 +5,14 @@ var responseFormatter = require('../utils/responseFormatter');
 function ResponseHandler(err, res, resolve, reject, endpoint) {
   //handle error status code
   if (err && err.status) {
+      console.warn(`network err api ${res.req.method}: ${err}`);
+
     if (res.status >= 400 && res.status <= 502) {
-      reject(err)
+      reject({
+        status: res && res.status ? res.status : "unknown api error",
+        error: res && res.body && res.body.meta && res.body.meta.msg ? res.body.meta.msg : null,
+        statusText: res && res.body ? res.body : null
+      })
     }
   }
   //deal with successful status code
