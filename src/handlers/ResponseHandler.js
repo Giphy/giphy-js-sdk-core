@@ -66,7 +66,7 @@ function formatApiReturn(body, endpoint) {
   responseObject.meta = body.meta;
   if (body.pagination) {
     responseObject.pagination = body.pagination;
-    if(!responseObject.pagination.offset){
+    if (!responseObject.pagination.offset) {
       responseObject.pagination.offset = null
     }
   }

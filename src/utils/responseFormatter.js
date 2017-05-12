@@ -33,7 +33,7 @@ function responseFormatter(data, endpoint) {
   switch (endpoint) {
     case "translate":
     case "gifByID":
-        return Media(data);
+      return Media(data);
 
     case "search":
     case "trending":
@@ -52,7 +52,7 @@ function responseFormatter(data, endpoint) {
       return _.map(data, (singleSubCategory) => {
         return Category(singleSubCategory)
       })
-      
+
     case "termSuggestions":
       return _.map(data, (singleTerm) => {
         return TermSuggestion(singleTerm)

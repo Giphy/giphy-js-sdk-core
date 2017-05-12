@@ -773,31 +773,6 @@ describe('INVALID API KEY ATTEMPTS', function() {
   });
 });
 
-//CANCEL OF REQUESTS 
-describe('CANCEL REQUESTS', function() {
-  var apiKey = "4OMJYpPoYwVpe";
-  var client = GphApiClient(apiKey);
-
-  it('cancel outgoing request', function(done) {
-       
-    // this.timeout = 3000;
-    
-    setTimeout(function(){
-      done();
-    }, 2000);
-   
-    var testCase = client.gifByID("8SDNJAJS2WRONG")
-    testCase.then((response) => {
-      throw 'error'
-    })
-
-    testCase.cancel();
-
-    testCase.catch((err) => {
-        throw 'error'
-    })
-  });
-});
 
 //PASSING IN ARGUMENTS 
 

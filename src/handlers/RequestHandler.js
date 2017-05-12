@@ -24,8 +24,6 @@
  IN THE SOFTWARE.
 */
 
-
-
 var request = require('superagent');
 var ResponseHandler = require('./ResponseHandler');
 

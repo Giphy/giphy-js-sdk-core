@@ -27,16 +27,13 @@
 var Media = require('./Media');
 var _ = require('lodash');
 
-var Category = function(data){
-	return (
-		{
-			name: data.name ? data.name : null,
-			name_encoded: data.name_encoded ? data.name_encoded : null,
-			gif: data.gif ? Media(data.gif) : Media({}),
-			subcategories: data.subcategories ? _.map(data.subcategories, (subcat) => Category(subcat)) : []
-		}
-	)
+var Category = function(data) {
+  return ({
+    name: data.name ? data.name : null,
+    name_encoded: data.name_encoded ? data.name_encoded : null,
+    gif: data.gif ? Media(data.gif) : Media({}),
+    subcategories: data.subcategories ? _.map(data.subcategories, (subcat) => Category(subcat)) : null
+  })
 }
 
 module.exports = Category
-
