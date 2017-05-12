@@ -62,11 +62,13 @@ function ResponseHandler(err, res, resolve, reject, endpoint) {
 function formatApiReturn(body, endpoint) {
   var responseObject = {};
   //modify the data field to match spec
-  var modifiedData = responseFormatter(body.data, endpoint)
-  responseObject.data = modifiedData;
+  responseObject.data = responseFormatter(body.data, endpoint);
   responseObject.meta = body.meta;
   if (body.pagination) {
     responseObject.pagination = body.pagination;
+    if(!responseObject.pagination.offset){
+      responseObject.pagination.offset = null
+    }
   }
   return responseObject
 

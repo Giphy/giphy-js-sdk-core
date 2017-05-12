@@ -25,35 +25,38 @@
 */
 
 var _ = require('lodash');
-var MediaItem = require('./MediaItem');
+var Media = require('./Media');
 var Category = require('./Category');
+var TermSuggestion = require('./TermSuggestion');
 
 function responseFormatter(data, endpoint) {
   switch (endpoint) {
     case "translate":
     case "gifByID":
-        return MediaItem(data);
+        return Media(data);
 
     case "search":
     case "trending":
     case "gifsByIDs":
     case "gifsByCategories":
-      return modifiedData = _.map(data, (gifObject) => {
-        return MediaItem(gifObject);
+      return _.map(data, (gifObject) => {
+        return Media(gifObject);
       });
 
     case "categoriesForGifs":
-      return modifiedData = _.map(data, (singleCategory) => {
+      return _.map(data, (singleCategory) => {
         return Category(singleCategory)
       })
 
     case "subCategoriesForGifs":
-      return modifiedData = _.map(data, (singleSubCategory) => {
+      return _.map(data, (singleSubCategory) => {
         return Category(singleSubCategory)
       })
       
     case "termSuggestions":
-      return data
+      return _.map(data, (singleTerm) => {
+        return TermSuggestion(singleTerm)
+      })
     case ("random"):
       return {
         images: {
