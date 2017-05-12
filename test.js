@@ -1,5 +1,6 @@
 var expect = require('chai').expect;
 var GphApiClient = require('./src/GphApiClient')
+var _ = require('lodash');
 
 describe('SEARCH - gifs', function() {
   var apiKey = "4OMJYpPoYwVpe";
@@ -502,7 +503,7 @@ describe('SUBCATEGORIES', function() {
     client.subCategoriesForGifs("tv", {}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
       response.data.forEach(function(category) {
-        expect(category).to.have.keys('name_encoded', 'name', 'gif')
+        expect(category).to.have.keys('name_encoded', 'subcategories', 'name', 'gif')
       });
       done();
     }).catch((err) => {
@@ -516,7 +517,7 @@ describe('SUBCATEGORIES', function() {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
       response.data.forEach(function(category) {
-        expect(category).to.have.keys('name_encoded', 'name', 'gif')
+        expect(category).to.have.keys('name_encoded', 'subcategories', 'name', 'gif')
       });
       done();
     });
@@ -549,10 +550,6 @@ describe('SUBCATEGORIES', function() {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
-
-      response.data.forEach(function(category) {
-        expect(category.type).to.equal('gif')
-      });
       done();
     });
   });
@@ -563,31 +560,23 @@ describe('TERM SUGGESTIONS', function() {
   var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
-  it('PROMISE - returns an array of gifs', function(done) {
+  it('PROMISE - returns an array of terms', function(done) {
     this.timeout(2000);
     client.termSuggestions("fake").then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
-
-      response.data.forEach(function(category) {
-        expect(category.type).to.equal('gif')
-      });
       done();
     }).catch((err) => {
       done(err);
     })
   });
 
-  it('CALLBACK - returns an array of gifs', function(done) {
+  it('CALLBACK - returns an array of terms', function(done) {
     this.timeout(2000);
     client.termSuggestions("fake", function(response, err) {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
-
-      response.data.forEach(function(category) {
-        expect(category.type).to.equal('gif')
-      });
       done();
     });
   });

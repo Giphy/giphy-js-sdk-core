@@ -31,7 +31,9 @@ function formatApiReturn(body, endpoint) {
   var modifiedData = responseFormatter(body.data, endpoint)
   responseObject.data = modifiedData;
   responseObject.meta = body.meta;
-
+  if(body.pagination){
+    responseObject.pagination = body.pagination;
+  }
   return responseObject
 
 }
