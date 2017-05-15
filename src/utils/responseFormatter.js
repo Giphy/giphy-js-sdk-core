@@ -1,44 +1,98 @@
+/*
+ responseFormatter.js
+ GiphyCoreSDK
+
+ Created by Cosmo Cochrane on 4/24/17.
+ Copyright © 2017 Giphy. All rights reserved.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to
+ deal in the Software without restriction, including without limitation the
+ rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ sell copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ IN THE SOFTWARE.
+*/
+
 var _ = require('lodash');
+var Media = require('./Media');
+var Category = require('./Category');
+var TermSuggestion = require('./TermSuggestion');
 
 function responseFormatter(data, endpoint) {
-
   switch (endpoint) {
+    case "translate":
+    case "gifByID":
+      return Media(data);
+
+    case "search":
+    case "trending":
+    case "gifsByIDs":
+    case "gifsByCategories":
+      return _.map(data, (gifObject) => {
+        return Media(gifObject);
+      });
+
+    case "categoriesForGifs":
+      return _.map(data, (singleCategory) => {
+        return Category(singleCategory)
+      })
+
+    case "subCategoriesForGifs":
+      return _.map(data, (singleSubCategory) => {
+        return Category(singleSubCategory)
+      })
+
+    case "termSuggestions":
+      return _.map(data, (singleTerm) => {
+        return TermSuggestion(singleTerm)
+      })
     case ("random"):
       return {
         images: {
           fixed_height_downsampled: {
-            url: data.fixed_height_downsampled_url,
+            gif_url: data.fixed_height_downsampled_url,
             height: data.fixed_height_downsampled_height,
             width: data.fixed_height_downsampled_width
           },
           fixed_height_small: {
-            url: data.fixed_height_small_url,
+            gif_url: data.fixed_height_small_url,
             height: data.fixed_height_small_height,
             width: data.fixed_height_small_width
           },
           fixed_width_downsampled: {
-            url: data.fixed_height_small_url,
+            gif_url: data.fixed_height_small_url,
             height: data.fixed_height_small_height,
             width: data.fixed_height_small_width
           },
           fixed_height_downsampled: {
-            url: data.fixed_height_small_url,
+            gif_url: data.fixed_height_small_url,
             height: data.fixed_height_small_height,
             width: data.fixed_height_small_width
           },
           fixed_width_small: {
-            url: data.fixed_width_small_url,
+            gif_url: data.fixed_width_small_url,
             height: data.fixed_width_small_height,
             width: data.fixed_width_small_width
           },
           fixed_width_small_still: {
-            url: data.fixed_width_small_url,
+            gif_url: data.fixed_width_small_url,
             height: data.fixed_width_small_height,
             width: data.fixed_width_small_width
           },
           original: {
             frames: data.image_frames,
-            url: data.image_original_url,
+            gif_url: data.image_original_url,
             height: data.image_height,
             mp4: data.image_mp4_url,
             width: data.image_width
@@ -51,42 +105,11 @@ function responseFormatter(data, endpoint) {
         url: data.url,
         type: data.type
       };
-    case "search":
-    case "trending":
-    case "translate":
-    case "random":
-    case "gifByID":
-    case "gifsByIDs":
-    case "gifsByCategories":
-      _.forOwn(data, (gif, key) => {
-        delete gif.username;
-        _.forOwn(gif.images, (image, key) => {
-          image.media_id = gif.id;
-          image.rendition_type = key;
-        });
-      });
-      return data
-
-    case "categoriesForGifs":
-       _.forOwn(data, (category) => {
-        category.subcategories.forEach((subcategory) => {
-          subcategory.gif = null;
-          subcategory.subcategories = null;
-        })
-      });
-      return data
-    case "subCategoriesForGifs":
-      _.forOwn(data, (subcategory) => {
-        subcategory.subcategories = null
-      })
-      return data
-    case "termSuggestions":
-      return data
 
     default:
       throw "Unimplemented endpoint " + endpoint
   }
-
 }
+
 
 module.exports = responseFormatter

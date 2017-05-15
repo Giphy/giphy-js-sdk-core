@@ -1,3 +1,29 @@
+/*
+ GphApiClient.js
+ GiphyCoreSDK
+
+ Created by Cosmo Cochrane on 4/24/17.
+ Copyright © 2017 Giphy. All rights reserved.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to
+ deal in the Software without restriction, including without limitation the
+ rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ sell copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ IN THE SOFTWARE.
+*/
+
 var _ = require('lodash');
 var RequestHandler = require('./handlers/RequestHandler');
 
@@ -22,15 +48,14 @@ class GphApiClient {
 
   /**
    * @return a list of gifs that match the inputted search query
-   * @param type specify whether it is a gif or a sticker
-   * @param params an object containing parameters
-   * @param params.q search query term or phrase
-   * @param params.limit (optional) number of results to return, maximum 100. Default 25.
-   * @param params.offset(optional) results offset, defaults to 0.
-   * @param params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
-   * @param params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported languages here
-   * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {String} type - specify whether it is a gif or a sticker
+   * @param {Object} params an object containing parameters
+   * @param {String} params.q search query term or phrase
+   * @param {Integer} params.limit (optional) number of results to return, maximum 100. Default 25.
+   * @param {Integer} params.offset(optional) results offset, defaults to 0.
+   * @param {String}  params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
+   * @param {String} params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported languages here
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   search(type, params, cb) {
 
@@ -48,13 +73,12 @@ class GphApiClient {
 
   /**
    * @return a list of currently trending gifs
-   * @param params an object containing parameters
-   * @param type specify whether it is a gif or a sticker
-   * @param params.limit (optional) number of results to return, maximum 100. Default 25.
-   * @param params.offset(optional) results offset, defaults to 0.
-   * @param params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
-   * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {Object} params an object containing parameters
+   * @param {String} type specify whether it is a gif or a sticker
+   * @param {Integer} params.limit (optional) number of results to return, maximum 100. Default 25.
+   * @param {Integer} params.offset(optional) results offset, defaults to 0.
+   * @param {String} params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   trending(type, params, cb) {
 
@@ -72,12 +96,12 @@ class GphApiClient {
 
   /**
    * @return a single gif
-   * @param type specify whether it is a gif or a sticker
-   * @param params an object containing parameters
-   * @param params.s (optional) the term you would lole to have translated
-   * @param params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code
-   * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {String} type specify whether it is a gif or a sticker
+   * @param {Object} params an object containing parameters
+   * @param {String} params.s (optional) the term you would lole to have translated
+   * @param {String} params.rating (optional) @type string limit results to those rated (y,g, pg, pg-13 or r).   
+   * @param {String} params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   translate(type, params, cb) {
 
@@ -95,12 +119,11 @@ class GphApiClient {
 
   /**
    * @return a random gif
-   * @param type specify whether it is a gif or a sticker
-   * @param params an object containing parameters
-   * @param params.tag (optional) the GIF tag to limit randomness by
-   * @param params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
-   * @param params.fmt (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {String} type specify whether it is a gif or a sticker
+   * @param {Object} params an object containing parameters
+   * @param {String} params.tag (optional) the GIF tag to limit randomness by
+   * @param {String} params.rating (optional) limit results to those rated (y,g, pg, pg-13 or r).
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   random(type, params, cb) {
 
@@ -118,8 +141,8 @@ class GphApiClient {
 
   /**
    * @return single gif based on the provided ID
-   * @param id ID associated with a specific gif
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {String} id ID associated with a specific gif
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   gifByID(id, cb) {
 
@@ -137,9 +160,9 @@ class GphApiClient {
 
   /**
    * @return a list of gifs per ID
-   * @param params an object containing parameters
-   * @param params.ids (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {Object} params an object containing parameters
+   * @param {Array} params.ids (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   gifsByIDs(params, cb) {
 
@@ -160,12 +183,11 @@ class GphApiClient {
 
   /**
    * @return a list of categories
-   * @param type gif or a sticker
-   * @param params an object containing parameters
-   * @param params.sort (optional)
-   * @param params.offset (optional) results offset, defaults to 0.
-   * @param params.limit (optional) number of results to return, maximum 100. Default 25.
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {String} type gif or a sticker
+   * @param {Object} params an object containing parameters
+   * @param {String} params.sort (optional)
+   * @param {Integer} params.limit (optional) number of results to return, maximum 100. Default 25.
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   categoriesForGifs(params, cb) {
 
@@ -183,11 +205,11 @@ class GphApiClient {
 
   /**
    * @return a list of subcategories for a category
-   * @param subcategory subcategory name
-   * @param params an object containing parameters
-   * @param params.limit
-   * @param params.offset
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {String} subcategory subcategory name
+   * @param {Object} params an object containing parameters
+   * @param {Integer} params.limit (optional) number of results to return, maximum 100. Default 25.
+   * @param {Integer} params.offset (optional) results offset, defaults to 0.
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   subCategoriesForGifs(subcategory, params, cb) {
 
@@ -205,12 +227,12 @@ class GphApiClient {
 
   /**
    * @return a list of gifs
-   * @param params an object containing parameters
-   * @param category category name
-   * @param subcategory subcategory name
-   * @param params.limit
-   * @param params.offset
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {Object} params an object containing parameters
+   * @param {String} category category name
+   * @param {String} subcategory subcategory name
+   * @param {Integer} params.limit (optional) number of results to return, maximum 100. Default 25.
+   * @param {Integer} params.offset offset (optional) results offset, defaults to 0.
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   gifsByCategories(category, subcategory, params, cb) {
 
@@ -228,8 +250,8 @@ class GphApiClient {
 
   /**
    * @return a list of term suggestions
-   * @param term a term to receive back similar terms
-   * @param callback (optional) callback will default to a promise if nothing is passed in
+   * @param {String} term a term to receive back similar terms
+   * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   termSuggestions(term, cb) {
 

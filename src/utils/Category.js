@@ -1,5 +1,5 @@
 /*
- index.js
+ Category.js
  GiphyCoreSDK
 
  Created by Cosmo Cochrane on 4/24/17.
@@ -24,7 +24,16 @@
  IN THE SOFTWARE.
 */
 
+var Media = require('./Media');
+var _ = require('lodash');
 
-'use strict';
+var Category = function(data) {
+  return ({
+    name: data.name ? data.name : null,
+    name_encoded: data.name_encoded ? data.name_encoded : null,
+    gif: data.gif ? Media(data.gif) : null,
+    subcategories: data.subcategories ? _.map(data.subcategories, (subcat) => Category(subcat)) : null
+  })
+}
 
-module.exports = require('./lib/GphApiClient');
+module.exports = Category

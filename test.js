@@ -1,5 +1,32 @@
+/*
+ NetworkingClientTest.js
+ GiphyCoreSDK
+
+ Created by Cosmo Cochrane on 4/24/17.
+ Copyright © 2017 Giphy. All rights reserved.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to
+ deal in the Software without restriction, including without limitation the
+ rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ sell copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ IN THE SOFTWARE.
+*/
+
 var expect = require('chai').expect;
 var GphApiClient = require('./src/GphApiClient')
+var _ = require('lodash');
 
 describe('SEARCH - gifs', function() {
   var apiKey = "4OMJYpPoYwVpe";
@@ -14,9 +41,30 @@ describe('SEARCH - gifs', function() {
     client.search("gifs", {
       "q": "fun"
     }).then((response) => {
+      console.log(response)
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
 
+      done();
+    }).catch((err) => {
+      done(err);
+    })
+  });
+
+  it('passed in arguments returns search results (OFFSET) validated', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    this.timeout(3000);
+   
+    client.search("gifs", {
+      "q": "fun",
+      "limit": 12,
+      "offset": 25
+    }).then((response) => {
+      console.log(response);
+      expect(Array.isArray(response.data)).to.equal(true);
+      expect(response.data.length).to.equal(12);
+      expect(response.pagination.offset).to.equal(25)
       done();
     }).catch((err) => {
       done(err);
@@ -72,6 +120,8 @@ describe('SEARCH - gifs', function() {
       done();
     });
   });
+
+
 });
 
 
@@ -97,6 +147,27 @@ describe('SEARCH - stickers', function() {
       done(err);
     })
   });
+
+
+  it('passed in arguments returns search results (OFFSET) validated', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    this.timeout(3000);
+   
+    client.search("stickers", {
+      "q": "fun",
+      "limit": 10,
+      "offset": 25
+    }).then((response) => {
+      expect(Array.isArray(response.data)).to.equal(true);
+      expect(response.data.length).to.equal(10);
+      expect(response.pagination.offset).to.equal(25);
+      done();
+    }).catch((err) => {
+      done(err);
+    })
+  });
+
 
   it('CALLBACK - returns search results', function(done) {
     // Increase the default timeout for this test
@@ -166,6 +237,24 @@ describe('TRENDING - gifs', function() {
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
 
+      done();
+    }).catch((err) => {
+      done(err);
+    })
+  });
+
+
+  it('passed in arguments returns search results (OFFSET) validated', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    this.timeout(3000);
+   
+    client.trending("gifs", {
+      "limit": 10,
+      "offset": 25
+    }).then((response) => {
+      expect(response.data.length).to.equal(10);
+      expect(response.pagination.offset).to.equal(25);
       done();
     }).catch((err) => {
       done(err);
@@ -253,6 +342,23 @@ describe('TRENDING - stickers', function() {
     });
   });
 
+  it('passed in arguments returns search results (OFFSET) validated', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    this.timeout(3000);
+   
+    client.trending("stickers", {
+      "limit": 10,
+      "offset": 25
+    }).then((response) => {
+      expect(response.data.length).to.equal(10);
+      expect(response.pagination.offset).to.equal(25);
+      done();
+    }).catch((err) => {
+      done(err);
+    })
+  });
+
   it('PROMISE - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
@@ -310,8 +416,6 @@ describe('TRANSLATE - stickers', function(done) {
    var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
-
-
   it('PROMISE - returns one sticker from the sticker shop', function(done) {
     this.timeout(2000);
     client.translate("stickers", {
@@ -331,8 +435,6 @@ describe('TRANSLATE - stickers', function(done) {
 describe('RANDOM - gifs', function() {
     var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
-
-
 
   it('PROMISE - returns a random single gif', function(done) {
     this.timeout(2000);
@@ -464,8 +566,6 @@ describe('CATEGORIES', function() {
   var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
-
-
   it('PROMISE - returns an array of categories', function(done) {
     this.timeout(2000);
     client.categoriesForGifs({}).then((response) => {
@@ -502,7 +602,7 @@ describe('SUBCATEGORIES', function() {
     client.subCategoriesForGifs("tv", {}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
       response.data.forEach(function(category) {
-        expect(category).to.have.keys('name_encoded', 'name', 'gif')
+        expect(category).to.have.keys('name_encoded', 'subcategories', 'name', 'gif')
       });
       done();
     }).catch((err) => {
@@ -516,11 +616,24 @@ describe('SUBCATEGORIES', function() {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
       response.data.forEach(function(category) {
-        expect(category).to.have.keys('name_encoded', 'name', 'gif')
+        expect(category).to.have.keys('name_encoded', 'subcategories', 'name', 'gif')
       });
       done();
     });
   });
+
+  it('passing limit and offset to categories endpoint returns with pagination', function(done) {
+    this.timeout(2000);
+    client.subCategoriesForGifs("tv", {"offset": 1, "limit": 10}).then((response) => {
+      console.log(response)
+      expect(response.data.length).to.equal(10);
+
+      done();
+    }).catch((err) => {
+      done(err);
+    })
+  });
+
 });
 
 
@@ -549,10 +662,6 @@ describe('SUBCATEGORIES', function() {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
-
-      response.data.forEach(function(category) {
-        expect(category.type).to.equal('gif')
-      });
       done();
     });
   });
@@ -563,32 +672,109 @@ describe('TERM SUGGESTIONS', function() {
   var apiKey = "4OMJYpPoYwVpe";
   var client = GphApiClient(apiKey);
 
-  it('PROMISE - returns an array of gifs', function(done) {
+  it('PROMISE - returns an array of terms', function(done) {
     this.timeout(2000);
     client.termSuggestions("fake").then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
-
-      response.data.forEach(function(category) {
-        expect(category.type).to.equal('gif')
-      });
       done();
     }).catch((err) => {
       done(err);
     })
   });
 
-  it('CALLBACK - returns an array of gifs', function(done) {
+  it('CALLBACK - returns an array of terms', function(done) {
     this.timeout(2000);
     client.termSuggestions("fake", function(response, err) {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
-
-      response.data.forEach(function(category) {
-        expect(category.type).to.equal('gif')
-      });
       done();
     });
   });
 });
+///
+
+
+describe('EMPTY RESPONSES', function() {
+  var apiKey = "4OMJYpPoYwVpe";
+  var client = GphApiClient(apiKey);
+
+  it('Search term with no responses returns empty array', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    this.timeout(3000);
+   
+    client.search("gifs", {
+      "q": "funfunfunfunnofun"
+    }).then((response) => {
+      expect(Array.isArray(response.data)).to.equal(true);
+      expect(response.data.length).to.equal(0);
+
+      done();
+    }).catch((err) => {
+      done(err);
+    })
+  });
+});
+
+
+describe('ERROR RESPONSES', function() {
+  var apiKey = "4OMJYpPoYwVpe";
+  var client = GphApiClient(apiKey);
+
+  it('SEARCH Missing type variable throws appropriate error (gif instead of gifs)', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    this.timeout(3000);
+   
+    client.search("gif", {
+      "q": "funfunfunfunnofun"
+    }).then((response) => {
+
+    }).catch((err) => {
+        expect(err).to.have.keys('status', 'error', 'statusText');
+      done();
+    })
+  });
+
+  it('GifById - pass in a wrong ID', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    this.timeout(3000);
+   
+    client.gifByID("8SDNJAJS2WRONG").then((response) => {
+
+    }).catch((err) => {
+        expect(err).to.have.keys('status', 'error', 'statusText');
+      done();
+    })
+  });
+});
+
+describe('INVALID API KEY ATTEMPTS', function() {
+  var apiKey = "4OMJYpPoYwVpe888888";
+  var client = GphApiClient(apiKey);
+
+  it('INVALID API KEY', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    var apiKeyTemp = "4OMsssssJYpPoYwVpe";
+    var clientTemp = GphApiClient(apiKey);
+
+    this.timeout(3000);
+   
+    client.gifByID("8SDNJAJS2WRONG").then((response) => {
+
+    }).catch((err) => {
+        expect(err).to.have.keys('status', 'error', 'statusText');
+      done();
+    })
+  });
+});
+
+
+//PASSING IN ARGUMENTS 
+
+
+

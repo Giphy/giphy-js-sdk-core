@@ -1,5 +1,5 @@
 /*
- index.js
+ TermSuggestion.js
  GiphyCoreSDK
 
  Created by Cosmo Cochrane on 4/24/17.
@@ -24,7 +24,11 @@
  IN THE SOFTWARE.
 */
 
+var TermSuggestion = function(data) {
+  return ({
+    "term": data.name ? data.name : null
+  })
+}
 
-'use strict';
 
-module.exports = require('./lib/GphApiClient');
+module.exports = TermSuggestion
