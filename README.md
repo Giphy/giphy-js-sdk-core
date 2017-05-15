@@ -2,8 +2,8 @@
 
 The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/GiphyAPI).
 
-[![Version][version-svg]][package-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
-![Build Status](https://travis-ci.com/Giphy/giphy-web-sdk-core.svg?token=ytpQbMSuy8sydsqZwbwp&branch=master)
+![Build Status](https://travis-ci.com/Giphy/giphy-web-sdk-core.svg?token=ytpQbMSuy8sydsqZwbwp&branch=master&style=flat-square)   [![Version][version-svg]][package-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
+
 
 [license-image]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
 [license-url]: LICENSE.md
