@@ -44,19 +44,20 @@ var Media = function(data) {
     user: data.user ? User(data.user) : null,
     images: data.images ? Images(data.images, data.id) : null,
     source_tld: data.source_tld ? data.source_tld : null,
-    source_post_url: data.source_post_url ? data.source_post_url : null,
-    update_datetime: data.update_datetime ? data.update_datetime : null,
-    create_datetime: data.create_datetime ? data.create_datetime : null,
-    import_datetime: data.import_datetime ? data.import_datetime : null,
-    trending_datetime: data.trending_datetime ? data.trending_datetime : null,
-    is_hidden: data.is_hidden ? data.is_hidden : null,
-    is_removed: data.is_removed ? data.is_removed : null,
-    is_community: data.is_community ? data.is_community : null,
-    is_anonymous: data.is_anonymous ? data.is_anonymous : null,
-    is_featured: data.is_featured ? data.is_featured : null,
-    is_realtime: data.is_realtime ? data.is_realtime : null,
-    is_indexable: data.is_indexable ? data.is_indexable : null,
-    is_sticker: data.is_sticker ? data.is_sticker : null
+
+    source_post_url: data.source_post_url ? new Date(data.source_post_url) : null,
+    update_datetime: data.update_datetime ? new Date(data.update_datetime) : null,
+    create_datetime: data.create_datetime ? new Date(data.create_datetime) : null,
+    import_datetime: data.import_datetime ? new Date(data.import_datetime) : null,
+    trending_datetime: data.trending_datetime ? new Date(data.trending_datetime) : null,
+    is_hidden: data.is_hidden ? true : false,
+    is_removed: data.is_removed ? true : false,
+    is_community: data.is_community ? true : false,
+    is_anonymous: data.is_anonymous ? true : false,
+    is_featured: data.is_featured ? true : false,
+    is_realtime: data.is_realtime ? true : false,
+    is_indexable: data.is_indexable ? true : false,
+    is_sticker: data.is_sticker ? true : false
   })
 }
 

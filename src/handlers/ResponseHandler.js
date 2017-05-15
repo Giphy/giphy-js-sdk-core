@@ -30,30 +30,27 @@ var _ = require('lodash');
 var responseFormatter = require('../utils/responseFormatter');
 
 //handle status code and resolve/reject promise
-function ResponseHandler(err, res, resolve, reject, endpoint) {
+function ResponseHandler(res, data, resolve, reject, endpoint) {
   //handle error status code
-  if (err && err.status) {
-    console.warn(`network err api ${res.req.method}: ${err}`);
 
-    if (res.status >= 400 && res.status <= 502) {
+  if (res.status >= 400 && res.status <= 502) {
       reject({
         status: res && res.status ? res.status : "unknown api error",
-        error: res && res.body && res.body.meta && res.body.meta.msg ? res.body.meta.msg : null,
-        statusText: res && res.body ? res.body : null
-      })
-    }
+        error: res && data && data.meta && data.meta.msg ? data.meta.msg : null,
+        statusText: res && res.statusText ? res.statusText : null
+    })
   }
   //deal with successful status code
   if (res && res.status >= 200 && res.status < 300) {
     //pass the api response into a formatter to ensure it is to spec
-    var constructorModifiedData = formatApiReturn(res.body, endpoint);
+    var constructorModifiedData = formatApiReturn(data, endpoint);
     resolve(constructorModifiedData);
   } else {
     //reject promise with unexpected error
     reject({
       status: res && res.status ? res.status : 'unknown api error',
       error: res && res.status ? res.status : 'unknown api error',
-      statusText: res && res.body ? res.body : null
+      statusText: res && res.statusText ? res.statusText : null
     });
   }
 }
