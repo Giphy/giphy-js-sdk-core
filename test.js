@@ -41,7 +41,6 @@ describe('SEARCH - gifs', function() {
     client.search("gifs", {
       "q": "fun"
     }).then((response) => {
-      console.log(response)
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
 
