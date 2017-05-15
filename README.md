@@ -1,7 +1,7 @@
-![Build Status](https://travis-ci.com/Giphy/giphy-web-sdk-core.svg?token=ytpQbMSuy8sydsqZwbwp&branch=master)
 # Giphy Core SDK for JS
 
 The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/GiphyAPI).
+![Build Status](https://travis-ci.com/Giphy/giphy-web-sdk-core.svg?token=ytpQbMSuy8sydsqZwbwp&branch=master)
 
 [![Version][version-svg]][package-url] [![License][license-image]][license-url] [![Downloads][downloads-image]][downloads-url]
 
