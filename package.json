@@ -6,7 +6,6 @@
   "scripts": {
     "test": "npm run compile && mocha --compilers js:babel-core/register",
     "compile": "babel -d lib/ src/",
-    "prepublish": "npm version patch npm run compile",
     "lint": "gulp default"
   },
   "author": "",

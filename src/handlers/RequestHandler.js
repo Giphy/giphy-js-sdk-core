@@ -45,7 +45,6 @@ function RequestHandler(vals, endpoint, cb) {
             "Content-Type": "application/json"
           },
         }).then((response) => { //calling the end function will send the actual request 
-        console.log(response)         
           if (canceled === true) {
             return
           } else {
