@@ -44,7 +44,6 @@ var Media = function(data) {
     user: data.user ? User(data.user) : null,
     images: data.images ? Images(data.images, data.id) : null,
     source_tld: data.source_tld ? data.source_tld : null,
-
     source_post_url: data.source_post_url ? new Date(data.source_post_url) : null,
     update_datetime: data.update_datetime ? new Date(data.update_datetime) : null,
     create_datetime: data.create_datetime ? new Date(data.create_datetime) : null,

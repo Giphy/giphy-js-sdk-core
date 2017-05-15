@@ -34,10 +34,10 @@ function ResponseHandler(res, data, resolve, reject, endpoint) {
   //handle error status code
 
   if (res.status >= 400 && res.status <= 502) {
-      reject({
-        status: res && res.status ? res.status : "unknown api error",
-        error: res && data && data.meta && data.meta.msg ? data.meta.msg : null,
-        statusText: res && res.statusText ? res.statusText : null
+    reject({
+      status: res && res.status ? res.status : "unknown api error",
+      error: res && data && data.meta && data.meta.msg ? data.meta.msg : null,
+      statusText: res && res.statusText ? res.statusText : null
     })
   }
   //deal with successful status code
