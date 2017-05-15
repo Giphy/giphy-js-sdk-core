@@ -41,7 +41,6 @@ describe('SEARCH - gifs', function() {
     client.search("gifs", {
       "q": "fun"
     }).then((response) => {
-      console.log(response)
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
 
@@ -61,7 +60,6 @@ describe('SEARCH - gifs', function() {
       "limit": 12,
       "offset": 25
     }).then((response) => {
-      console.log(response);
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.equal(12);
       expect(response.pagination.offset).to.equal(25)
@@ -625,7 +623,6 @@ describe('SUBCATEGORIES', function() {
   it('passing limit and offset to categories endpoint returns with pagination', function(done) {
     this.timeout(2000);
     client.subCategoriesForGifs("tv", {"offset": 1, "limit": 10}).then((response) => {
-      console.log(response)
       expect(response.data.length).to.equal(10);
 
       done();
