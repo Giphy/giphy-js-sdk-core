@@ -33,6 +33,7 @@ The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/
 # Setup
 
 ### Require Module
+ 
 
 NPM
 ```
