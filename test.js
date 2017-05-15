@@ -25,7 +25,7 @@
 */
 
 var expect = require('chai').expect;
-var GphApiClient = require('./src/GphApiClient')
+var GphApiClient = require('./lib/GphApiClient')
 var _ = require('lodash');
 
 describe('SEARCH - gifs', function() {
