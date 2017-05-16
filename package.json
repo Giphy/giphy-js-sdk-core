@@ -1,16 +1,18 @@
 {
   "name": "@cosmocochrane/giphy-web-sdk-core",
-  "version": "1.0.14",
+  "version": "1.0.16",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run compile && mocha --compilers js:babel-core/register",
-    "compile": "babel -d lib/ src/",
-    "lint": "gulp default"
+    "test": "babel -d lib/ src/ && mocha --compilers js:babel-core/register",
+    "lint": "gulp default",
+    "build_for_npm": "gulp; babel -d lib/ src/",
+    "build_for_browser": "WEBPACK_ENV=build webpack"
   },
-  "author": "",
+  "author": "Cosmo Cochrane",
   "license": "ISC",
   "dependencies": {
+    "babel-plugin-add-module-exports": "^0.2.1",
     "es6-promise": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
@@ -18,15 +20,15 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "gulp": "^3.9.1",
-    "chai": "^3.5.0",
-    "gulp-eslint": "^3.0.1",
+    "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "mocha": "^3.3.0",
-    "babel-core": "^6.24.1",
-    "gulp-jsbeautifier": "^2.1.0"
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-jsbeautifier": "^2.1.0",
+    "mocha": "^3.3.0"
   }
 }

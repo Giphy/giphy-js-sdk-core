@@ -75,11 +75,6 @@ function responseFormatter(data, endpoint) {
             height: data.fixed_height_small_height,
             width: data.fixed_height_small_width
           },
-          fixed_height_downsampled: {
-            gif_url: data.fixed_height_small_url,
-            height: data.fixed_height_small_height,
-            width: data.fixed_height_small_width
-          },
           fixed_width_small: {
             gif_url: data.fixed_width_small_url,
             height: data.fixed_width_small_height,

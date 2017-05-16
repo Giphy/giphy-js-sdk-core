@@ -25,7 +25,6 @@
 */
 
 var Images = require('./Images');
-var Image = require('./Image');
 var User = require('./User');
 
 var Media = function(data) {

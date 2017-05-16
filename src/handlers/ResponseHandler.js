@@ -26,7 +26,6 @@
 
 
 
-var _ = require('lodash');
 var responseFormatter = require('../utils/responseFormatter');
 
 //handle status code and resolve/reject promise
