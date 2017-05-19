@@ -47,3 +47,125 @@ npm install --save giphy-web-sdk-core
 var GphApiClient = require('giphy-web-sdk-core')
 client = GphApiClient("YOUR_API_KEY")
 ```
+
+### Search Endpoint
+Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ignored.
+
+```javascript
+/// Gif Search
+client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string}).then((response) => {
+
+}).catch((err) => {
+
+})
+
+/// Sticker Search
+client.search('stickers', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+### Trending Endpoint
+Fetch GIFs currently trending online. Hand curated by the Giphy editorial team. The data returned mirrors the GIFs showcased on the [Giphy](https://www.giphy.com) homepage.
+
+```javascript
+/// Trending Gifs
+client.trending("gifs", {"limit": int, "offset": int, "rating": string}).then((response) => {
+
+}).catch((err) => {
+
+})
+
+/// Trending Stickers
+client.trending("stickers", {"limit": int, "offset": int, "rating": string}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+### Translate Endpoint
+The translate API draws on search, but uses the Giphy "special sauce" to handle translating from one vocabulary to another. In this case, words and phrases to GIFs. Example implementations of translate can be found in the Giphy Slack, Hipchat, Wire, or Dasher integrations. Use a plus or url encode for phrases.
+
+```javascript
+/// Translate to a Gif
+client.translate('gifs', {"s": 'cool', "rating": string, "lang": string}).then((response) => {
+
+}).catch((err) => {
+
+})
+
+/// Translate to a Sticker
+client.translate('stickers', {"s": 'cool', "rating": string, "lang": string}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+### Random Endpoint
+Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the Giphy catalog.
+
+```javascript
+/// Random Gif
+client.random('gifs', {"tag": string, "rating": string}).then((response) => {
+
+}).catch((err) => {
+
+})
+
+/// Random Sticker
+client.random('stickers', {"tag": string, "rating": string}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+### Get GIF by ID Endpoint
+Returns meta data about a GIF, by GIF id. In the below example, the GIF ID is "feqkVgjJpYtjy"
+
+```javascript
+/// Gif by Id
+client.gifById("feqkVgjJpYtjy").then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+### Get GIFs by IDs Endpoint
+A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkVgjJpYtjy and 7rzbxdu0ZEXLy.
+
+```javascript
+/// Gifs by Ids
+
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+# CONTRIBUTING
+
+Managing git repositories can be hard, so we've laid out a few simple guidelines to help keep things organized.
+
+## Guidelines
+
+1. Create a **Pull Request**; instead of pushing directly to `master`.
+
+2. Give your branch a **descriptive name** like `dh-network-fix` instead of something ambiguous like `my-branch`.
+
+3. Write a **descriptive summary** in the comment section on Github.
+
+4. **Don't merge your own Pull Request**; send it to your teammate for review.
+
+5. If you think something could be improved: **write a comment on the Pull Request** and send it to the author.
+
+6. Make sure your branch is based off `master`, and not some other outdated branch.
+
+7. **Don't reuse branches.** Once they're merged to `master` you should consider deleting them.
+
+8. Prefer **squash** when doing a **Pull Request**, as it simplifies the commit history.
