@@ -771,6 +771,34 @@ describe('INVALID API KEY ATTEMPTS', function() {
 });
 
 
+
+describe('Cancel requests properly', function() {
+
+  it('Cancel requests properly', function(done) {
+    // Increase the default timeout for this test
+    // If the test takes longer than this, it will fail
+    var apiKey = "4OMJYpPoYwVpe";
+    var client = GphApiClient(apiKey);
+
+    this.timeout(3000);
+
+    var didItGetHere = false
+    setTimeout(function(){
+      done()
+    }, 2000);
+
+    var cancelRequest = client.gifByID("8SDNJAJS2WRONG")
+    cancelRequest.cancel();
+    cancelRequest.then((response) => {
+      throw "did not cancel"
+    })
+    cancelRequest.catch((err) => {
+      throw err
+    })
+
+  });
+});
+
 //PASSING IN ARGUMENTS 
 
 
