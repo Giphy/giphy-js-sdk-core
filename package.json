@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "babel -d lib/ src/ && mocha --compilers js:babel-core/register",
+    "test": "babel -d lib/ src/ && mocha --compilers js:babel-core/register --recursive \"./tests/**/*.spec.js\"",
     "lint": "gulp default",
     "build_for_npm": "gulp; babel -d lib/ src/",
     "build_for_browser": "WEBPACK_ENV=build webpack"

@@ -17,6 +17,20 @@ gulp.task('prettify', function() {
     .pipe(gulp.dest('./src'));
 });
 
+gulp.task('clean_tests', function() {
+  gulp.src(['./tests/**.js'])
+    .pipe(prettify({
+      "indent_size": 4,
+      "indent_char": ' ',
+      // other options
+      "js": {
+        // other options
+        "indent_size": 2
+      }
+    }))
+    .pipe(gulp.dest('./tests'));
+});
+
 gulp.task("lint", function(){
     gulp.src("./src/**/*.js")
     .pipe(eslint())
