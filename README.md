@@ -74,6 +74,10 @@ client.search('stickers', {"q": "cats", "limit": int, "offset": int, "rating": s
 ```
 ### Trending Endpoint
 Fetch GIFs currently trending online. Hand curated by the Giphy editorial team. The data returned mirrors the GIFs showcased on the [Giphy](https://www.giphy.com) homepage.
+<br>
+<br>
+*Required Params*
+* none
 
 ```javascript
 /// Trending Gifs
@@ -93,6 +97,10 @@ client.trending("stickers", {"limit": int, "offset": int, "rating": string}).the
 
 ### Translate Endpoint
 The translate API draws on search, but uses the Giphy "special sauce" to handle translating from one vocabulary to another. In this case, words and phrases to GIFs. Example implementations of translate can be found in the Giphy Slack, Hipchat, Wire, or Dasher integrations. Use a plus or url encode for phrases.
+<br>
+<br>
+*Required Params*
+* s - term you would like to translate
 
 ```javascript
 /// Translate to a Gif
@@ -112,6 +120,10 @@ client.translate('stickers', {"s": 'cool', "rating": string, "lang": string}).th
 
 ### Random Endpoint
 Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the Giphy catalog.
+<br>
+<br>
+*Required Params*
+* none
 
 ```javascript
 /// Random Gif
@@ -131,6 +143,11 @@ client.random('stickers', {"tag": string, "rating": string}).then((response) => 
 
 ### Get GIF by ID Endpoint
 Returns meta data about a GIF, by GIF id. In the below example, the GIF ID is "feqkVgjJpYtjy"
+<br>
+<br>
+*Required Params*
+* none
+
 
 ```javascript
 /// Gif by Id
@@ -143,6 +160,8 @@ client.gifById("feqkVgjJpYtjy").then((response) => {
 
 ### Get GIFs by IDs Endpoint
 A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkVgjJpYtjy and 7rzbxdu0ZEXLy.
+*Required Params*
+* ids - array of gif ids
 
 ```javascript
 /// Gifs by Ids
