@@ -53,7 +53,8 @@ client = GphApiClient("YOUR_API_KEY")
 
 ### Search Endpoint
 Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ignored.
-
+*Required Params*
+* "q" - search query
 ```javascript
 /// Gif Search
 client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string}).then((response) => {
