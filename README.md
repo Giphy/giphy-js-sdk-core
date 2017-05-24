@@ -36,7 +36,7 @@ The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/
 ### Require Module
 
 
-NPM
+npm
 ```shell
 npm install --save giphy-web-sdk-core
 ```
