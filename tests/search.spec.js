@@ -54,7 +54,7 @@ describe('SEARCH - gifs', function() {
   it('passed in arguments returns search results (OFFSET) validated', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.search("gifs", {
       "q": "fun",
@@ -73,7 +73,7 @@ describe('SEARCH - gifs', function() {
   it('CALLBACK - returns search results', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.search("gifs", {
       "q": "fun"
@@ -90,7 +90,7 @@ describe('SEARCH - gifs', function() {
   it('PROMISE - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
     client.search("gifs", {
       "q": "fun"
     }).then((response) => {
@@ -107,7 +107,7 @@ describe('SEARCH - gifs', function() {
   it('CALLBACK - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
     client.search("gifs", {
       "q": "fun"
     }, function(response, err) {
@@ -130,7 +130,7 @@ describe('SEARCH - stickers', function() {
   it('PROMISE - returns search results', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.search("stickers", {
       "q": "fun"
@@ -148,7 +148,7 @@ describe('SEARCH - stickers', function() {
   it('passed in arguments returns search results (OFFSET) validated', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.search("stickers", {
       "q": "fun",
@@ -168,7 +168,7 @@ describe('SEARCH - stickers', function() {
   it('CALLBACK - returns search results', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.search("stickers", {
       "q": "fun"
@@ -185,7 +185,7 @@ describe('SEARCH - stickers', function() {
   it('PROMISE - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
     client.search("stickers", {
       "q": "fun"
     }).then((response) => {
@@ -203,7 +203,7 @@ describe('SEARCH - stickers', function() {
   it('CALLBACK - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
     client.search("stickers", {
       "q": "fun"
     }, function(response, err) {

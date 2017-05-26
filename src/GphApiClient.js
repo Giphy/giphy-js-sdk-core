@@ -98,7 +98,7 @@ class GphApiClient {
    * @return a single gif
    * @param {String} type specify whether it is a gif or a sticker
    * @param {Object} params an object containing parameters
-   * @param {String} params.s (optional) the term you would lole to have translated
+   * @param {String} params.s (optional) the term you would like to have translated
    * @param {String} params.rating (optional) @type string limit results to those rated (y,g, pg, pg-13 or r).   
    * @param {String} params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in

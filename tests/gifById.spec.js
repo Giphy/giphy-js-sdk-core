@@ -55,4 +55,29 @@ describe('GIF BY ID', function() {
     })
   });
 
+
+  it('PROMISE - errors out when an invalid gif ID was passed in', function(done) {
+    this.timeout(2000);
+    client.gifByID("3og0IvOsj15uYadsjandkjanssxYZi").then((response) => {
+     
+      throw 'should have never made it to the success block'
+    }).catch((err) => {
+      done()
+    })
+  });
+
+  it('CALLBACK - errors out when an invalid gif ID was passed in', function(done) {
+    this.timeout(2000);
+    client.gifByID("3og0IvOsj15uadasdasdasdYsxYZi", function(response, err) {
+      if (err) done();
+      throw 'should have never made it to the success block'
+    })
+  });
+
 });
+
+
+
+
+
+
