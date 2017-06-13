@@ -34,7 +34,7 @@ describe('CATEGORIES', function() {
   var client = GphApiClient(apiKey);
 
   it('PROMISE - returns an array of categories', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.categoriesForGifs({}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
       response.data.forEach(function(category) {
@@ -47,7 +47,7 @@ describe('CATEGORIES', function() {
   });
 
   it('CALLBACK - returnss an array of categories', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.categoriesForGifs({}, function(response, err) {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);

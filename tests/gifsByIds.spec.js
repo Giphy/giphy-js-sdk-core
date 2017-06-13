@@ -35,7 +35,7 @@ describe('GIFS BY IDS', function() {
 
 
   it('PROMISE - returns gifs based on the ids sent', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.gifsByIDs({
       "ids": ["3og0IvOsj15uYsxYZi", "l41lS0IgRIFkAuA5G", "3o6oziEt5VUgsuunxS"]
     }).then((response) => {
@@ -53,7 +53,7 @@ describe('GIFS BY IDS', function() {
   });
 
   it('CALLBACK - returns gifs based on the ids sent', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.gifsByIDs({
       "ids": ["3og0IvOsj15uYsxYZi", "l41lS0IgRIFkAuA5G", "3o6oziEt5VUgsuunxS"]
     }, function(response, err) {

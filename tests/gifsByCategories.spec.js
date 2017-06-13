@@ -34,7 +34,7 @@ describe('GIFS BY CATEGORIES', function() {
   var client = GphApiClient(apiKey);
 
   it('PROMISE - returns an array of gifs', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.gifsByCategories("tv", "'the office'", {}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
@@ -49,7 +49,7 @@ describe('GIFS BY CATEGORIES', function() {
   });
 
   it('CALLBACK - returns an array of gifs', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.gifsByCategories("tv", "'the office'", {}, function(response, err) {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);

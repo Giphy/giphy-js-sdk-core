@@ -36,7 +36,7 @@ describe('SUBCATEGORIES', function() {
 
 
   it('PROMISE - returns an array of categories', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.subCategoriesForGifs("tv", {}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
       response.data.forEach(function(category) {
@@ -49,7 +49,7 @@ describe('SUBCATEGORIES', function() {
   });
 
   it('CALLBACK - returns an array of categories', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.subCategoriesForGifs("tv", {}, function(response, err) {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
@@ -61,7 +61,7 @@ describe('SUBCATEGORIES', function() {
   });
 
   it('passing limit and offset to categories endpoint returns with pagination', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.subCategoriesForGifs("tv", {
       "offset": 1,
       "limit": 10
@@ -75,7 +75,7 @@ describe('SUBCATEGORIES', function() {
   });
 
   it('PROMISE correctly responds with an error', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.subCategoriesForGifs({
       "offset": 1,
       "limit": 10

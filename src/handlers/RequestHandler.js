@@ -40,10 +40,7 @@ function RequestHandler(vals, endpoint, cb) {
 
     var constructedRequest = new Promise((resolve, reject) => {
       fetch(args.url + query_params_string, {
-        method: args.method,
-        headers: {
-          "Content-Type": "application/json"
-        }
+        method: args.method
       }).then((response) => { //calling the end function will send the actual request 
         if (canceled === true) {
           return

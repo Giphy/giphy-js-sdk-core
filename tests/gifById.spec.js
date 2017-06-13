@@ -33,7 +33,7 @@ describe('GIF BY ID', function() {
   var client = GphApiClient(apiKey);
 
   it('PROMISE - returns a single gif given an ID', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.gifByID("3og0IvOsj15uYsxYZi").then((response) => {
       expect(Array.isArray(response.data)).to.equal(false);
       expect(response.data.type).to.equal('gif');
@@ -45,7 +45,7 @@ describe('GIF BY ID', function() {
   });
 
   it('CALLBACK - returns a single gif given an ID', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.gifByID("3og0IvOsj15uYsxYZi", function(response, err) {
       if (err) done(err);
 
@@ -57,7 +57,7 @@ describe('GIF BY ID', function() {
 
 
   it('PROMISE - errors out when an invalid gif ID was passed in', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.gifByID("3og0IvOsj15uYadsjandkjanssxYZi").then((response) => {
      
       throw 'should have never made it to the success block'
@@ -67,7 +67,7 @@ describe('GIF BY ID', function() {
   });
 
   it('CALLBACK - errors out when an invalid gif ID was passed in', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.gifByID("3og0IvOsj15uadasdasdasdYsxYZi", function(response, err) {
       if (err) done();
       throw 'should have never made it to the success block'

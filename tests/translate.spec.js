@@ -34,7 +34,7 @@ describe('TRANSLATE - gifs', function() {
   var client = GphApiClient(apiKey);
 
   it('PROMISE - returns a single object that is a gif', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.translate("gifs", {
       "s": "cool"
     }).then((response) => {
@@ -53,7 +53,7 @@ describe('TRANSLATE - stickers', function(done) {
   var client = GphApiClient(apiKey);
 
   it('PROMISE - returns one sticker from the sticker shop', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.translate("stickers", {
       "s": "cool"
     }, (response, err) => {

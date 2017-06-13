@@ -36,7 +36,7 @@ describe('EMPTY RESPONSES', function() {
   it('Search term with no responses returns empty array', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.search("gifs", {
       "q": "funfunfunfunnofun"
@@ -58,7 +58,7 @@ describe('ERROR RESPONSES', function() {
   it('SEARCH Missing type variable throws appropriate error (gif instead of gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.search("gif", {
       "q": "funfunfunfunnofun"
@@ -73,7 +73,7 @@ describe('ERROR RESPONSES', function() {
   it('GifById - pass in a wrong ID', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.gifByID("8SDNJAJS2WRONG").then((response) => {
 
@@ -95,7 +95,7 @@ describe('INVALID API KEY ATTEMPTS', function() {
     var apiKeyTemp = "4OMsssssJYpPoYwVpe";
     var clientTemp = GphApiClient(apiKey);
 
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.gifByID("8SDNJAJS2WRONG").then((response) => {
 
@@ -114,7 +114,7 @@ describe('Cancel requests properly', function() {
     var apiKey = "4OMJYpPoYwVpe";
     var client = GphApiClient(apiKey);
 
-    this.timeout(3000);
+    this.timeout(5000);
 
     var didItGetHere = false
     setTimeout(function() {

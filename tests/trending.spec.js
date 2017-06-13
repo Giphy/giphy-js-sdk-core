@@ -37,7 +37,7 @@ describe('TRENDING - gifs', function() {
   it('PROMISE - trending results', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.trending("gifs", {}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
@@ -53,7 +53,7 @@ describe('TRENDING - gifs', function() {
   it('passed in arguments returns search results (OFFSET) validated', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.trending("gifs", {
       "limit": 10,
@@ -70,7 +70,7 @@ describe('TRENDING - gifs', function() {
   it('CALLBACK - returns trending results', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.trending("gifs", {}, function(response, err) {
       if (err) {
@@ -85,7 +85,7 @@ describe('TRENDING - gifs', function() {
   it('PROMISE - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
     client.trending("gifs", {}).then((response) => {
 
       response.data.forEach(function(gif) {
@@ -100,7 +100,7 @@ describe('TRENDING - gifs', function() {
   it('CALLBACK - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(2000);
+    this.timeout(5000);
     client.trending("gifs", {}, function(response, err) {
       if (err) done(err);
 
@@ -121,7 +121,7 @@ describe('TRENDING - stickers', function() {
   it('PROMISE - trending results', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.trending("stickers", {}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
@@ -136,7 +136,7 @@ describe('TRENDING - stickers', function() {
   it('CALLBACK - returns trending results', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.trending("stickers", {}, function(response, err) {
       if (err) {
@@ -151,7 +151,7 @@ describe('TRENDING - stickers', function() {
   it('passed in arguments returns search results (OFFSET) validated', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
 
     client.trending("stickers", {
       "limit": 10,
@@ -168,7 +168,7 @@ describe('TRENDING - stickers', function() {
   it('PROMISE - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(3000);
+    this.timeout(5000);
     client.trending("stickers", {}).then((response) => {
 
       response.data.forEach(function(gif) {
@@ -184,7 +184,7 @@ describe('TRENDING - stickers', function() {
   it('CALLBACK - returns an array of objects (gifs)', function(done) {
     // Increase the default timeout for this test
     // If the test takes longer than this, it will fail
-    this.timeout(2000);
+    this.timeout(5000);
     client.trending("stickers", {}, function(response, err) {
       if (err) done(err);
 

@@ -35,7 +35,7 @@ describe('RANDOM - gifs', function() {
   var client = GphApiClient(apiKey);
 
   it('PROMISE - returns a random single gif', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.random("gifs", {}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(false);
       expect(response.data.type).to.equal('gif');
@@ -47,7 +47,7 @@ describe('RANDOM - gifs', function() {
   });
 
   it('CALLBACK - returns a random single gif', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.random("gifs", {}, (response, err) => {
       expect(Array.isArray(response.data)).to.equal(false);
       expect(response.data.type).to.equal('gif');
@@ -64,7 +64,7 @@ describe('RANDOM - stickers', function() {
 
 
   it('PROMISE - returns a random single gif', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.random("stickers", {}).then((response) => {
       expect(Array.isArray(response.data)).to.equal(false);
       expect(response.data.type).to.equal('gif');
@@ -77,7 +77,7 @@ describe('RANDOM - stickers', function() {
 
 
   it('CALLBACK - returns a random single gif', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.random("stickers", {}, (response, err) => {
       expect(Array.isArray(response.data)).to.equal(false);
       expect(response.data.type).to.equal('gif');

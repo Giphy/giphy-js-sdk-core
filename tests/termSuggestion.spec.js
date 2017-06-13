@@ -34,7 +34,7 @@ describe('TERM SUGGESTIONS', function() {
   var client = GphApiClient(apiKey);
 
   it('PROMISE - returns an array of terms', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.termSuggestions("fake").then((response) => {
       expect(Array.isArray(response.data)).to.equal(true);
       expect(response.data.length).to.be.above(0);
@@ -45,7 +45,7 @@ describe('TERM SUGGESTIONS', function() {
   });
 
   it('CALLBACK - returns an array of terms', function(done) {
-    this.timeout(2000);
+    this.timeout(5000);
     client.termSuggestions("fake", function(response, err) {
       if (err) done(err);
       expect(Array.isArray(response.data)).to.equal(true);
