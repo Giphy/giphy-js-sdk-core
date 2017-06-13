@@ -173,6 +173,59 @@ client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) =>
 })
 ```
 
+### Categories Endpoint
+A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkVgjJpYtjy and 7rzbxdu0ZEXLy.
+
+```javascript
+/// Gifs by Ids
+
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+### Subcategories Endpoint
+Get Subcategories for GIFs given a cateory. You will need this sub-category object to pull GIFs for this category.
+
+```javascript
+/// Gifs by Ids
+
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+### Subcategory Content Endpoint
+Get GIFs for a given Sub-Category.
+
+```javascript
+/// Gifs by Ids
+
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+### Term Suggestions Endpoint.
+Get term suggestions give a search term, or a substring.
+
+```javascript
+/// Gifs by Ids
+
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+
+}).catch((err) => {
+
+})
+```
+
+
 # CONTRIBUTING
 
 Managing git repositories can be hard, so we've laid out a few simple guidelines to help keep things organized.
