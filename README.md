@@ -59,18 +59,22 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 * "q" - search query
 ```javascript
 /// Gif Search
-client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string}).then((response) => {
+client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 
 /// Sticker Search
-client.search('stickers', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string}).then((response) => {
+client.search('stickers', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 ### Trending Endpoint
 Fetch GIFs currently trending online. Hand curated by the Giphy editorial team. The data returned mirrors the GIFs showcased on the [Giphy](https://www.giphy.com) homepage.
@@ -81,18 +85,22 @@ Fetch GIFs currently trending online. Hand curated by the Giphy editorial team. 
 
 ```javascript
 /// Trending Gifs
-client.trending("gifs", {"limit": int, "offset": int, "rating": string}).then((response) => {
+client.trending("gifs", {"limit": int, "offset": int, "rating": string})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 
 /// Trending Stickers
-client.trending("stickers", {"limit": int, "offset": int, "rating": string}).then((response) => {
+client.trending("stickers", {"limit": int, "offset": int, "rating": string})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 
 ### Translate Endpoint
@@ -104,18 +112,22 @@ The translate API draws on search, but uses the Giphy "special sauce" to handle 
 
 ```javascript
 /// Translate to a Gif
-client.translate('gifs', {"s": 'cool', "rating": string, "lang": string}).then((response) => {
+client.translate('gifs', {"s": 'cool', "rating": string, "lang": string})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 
 /// Translate to a Sticker
-client.translate('stickers', {"s": 'cool', "rating": string, "lang": string}).then((response) => {
+client.translate('stickers', {"s": 'cool', "rating": string, "lang": string})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 
 ### Random Endpoint
@@ -127,18 +139,22 @@ Returns a random GIF, limited by tag. Excluding the tag parameter will return a 
 
 ```javascript
 /// Random Gif
-client.random('gifs', {"tag": string, "rating": string}).then((response) => {
+client.random('gifs', {"tag": string, "rating": string})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
-
+  })
+  
 /// Random Sticker
-client.random('stickers', {"tag": string, "rating": string}).then((response) => {
+client.random('stickers', {"tag": string, "rating": string})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 
 ### Get GIF by ID Endpoint
@@ -151,11 +167,13 @@ Returns meta data about a GIF, by GIF id. In the below example, the GIF ID is "f
 
 ```javascript
 /// Gif by Id
-client.gifById("feqkVgjJpYtjy").then((response) => {
+client.gifById("feqkVgjJpYtjy")
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 
 ### Get GIFs by IDs Endpoint
@@ -166,11 +184,13 @@ A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkV
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 
 ### Categories Endpoint
@@ -179,11 +199,13 @@ A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkV
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 
 ### Subcategories Endpoint
@@ -192,11 +214,13 @@ Get Subcategories for GIFs given a cateory. You will need this sub-category obje
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 
 ### Subcategory Content Endpoint
@@ -205,11 +229,13 @@ Get GIFs for a given Sub-Category.
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+  .then((response) => {
 
-}).catch((err) => {
+  })
+  .catch((err) => {
 
-})
+  })
 ```
 
 ### Term Suggestions Endpoint.
@@ -218,11 +244,13 @@ Get term suggestions give a search term, or a substring.
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]}).then((response) => {
+client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+  .then((response) => {
+ 
+  })
+  .catch((err) => {
 
-}).catch((err) => {
-
-})
+  })
 ```
 
 
