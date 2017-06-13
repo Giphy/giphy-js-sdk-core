@@ -199,7 +199,7 @@ A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkV
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+client.categoriesForGifs({})
   .then((response) => {
 
   })
@@ -214,7 +214,7 @@ Get Subcategories for GIFs given a cateory. You will need this sub-category obje
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+client.subCategoriesForGifs("tv", {})
   .then((response) => {
 
   })
@@ -229,7 +229,7 @@ Get GIFs for a given Sub-Category.
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+client.gifsByCategories("tv", "'the office'", {})
   .then((response) => {
 
   })
@@ -244,7 +244,7 @@ Get term suggestions give a search term, or a substring.
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+client.termSuggestions("cool")
   .then((response) => {
  
   })
