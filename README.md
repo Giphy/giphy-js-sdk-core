@@ -195,6 +195,10 @@ client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
 
 ### Categories Endpoint
 A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkVgjJpYtjy and 7rzbxdu0ZEXLy.
+<br>
+<br>
+*Required Params*
+* none
 
 ```javascript
 /// Gifs by Ids
@@ -210,6 +214,10 @@ client.categoriesForGifs({})
 
 ### Subcategories Endpoint
 Get Subcategories for GIFs given a cateory. You will need this sub-category object to pull GIFs for this category.
+<br>
+<br>
+*Required Params*
+* none
 
 ```javascript
 /// Gifs by Ids
@@ -225,6 +233,10 @@ client.subCategoriesForGifs("tv", {})
 
 ### Subcategory Content Endpoint
 Get GIFs for a given Sub-Category.
+<br>
+<br>
+*Required Params*
+* none
 
 ```javascript
 /// Gifs by Ids
@@ -240,6 +252,10 @@ client.gifsByCategories("tv", "'the office'", {})
 
 ### Term Suggestions Endpoint.
 Get term suggestions give a search term, or a substring.
+<br>
+<br>
+*Required Params*
+* none
 
 ```javascript
 /// Gifs by Ids
@@ -249,7 +265,7 @@ client.termSuggestions("cool")
  
   })
   .catch((err) => {
-
+ 
   })
 ```
 
