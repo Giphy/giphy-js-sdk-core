@@ -69,7 +69,7 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 
 ```javascript
 /// Gif Search
-client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string})
+client.search('gifs', {"q": "cats"})
   .then((response) => {
     response.data.forEach((gifObject) => {
       console.log(gifObject.gif)
@@ -80,7 +80,7 @@ client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": strin
   })
 
 /// Sticker Search
-client.search('stickers', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string})
+client.search('stickers', {"q": "cats"})
   .then((response) => {
 
   })
@@ -103,7 +103,7 @@ Fetch GIFs currently trending online. Hand curated by the Giphy editorial team. 
 
 ```javascript
 /// Trending Gifs
-client.trending("gifs", {"limit": int, "offset": int, "rating": string})
+client.trending("gifs", {})
   .then((response) => {
 
   })
@@ -112,7 +112,7 @@ client.trending("gifs", {"limit": int, "offset": int, "rating": string})
   })
 
 /// Trending Stickers
-client.trending("stickers", {"limit": int, "offset": int, "rating": string})
+client.trending("stickers", {})
   .then((response) => {
 
   })
@@ -133,7 +133,7 @@ The translate API draws on search, but uses the Giphy "special sauce" to handle 
 
 ```javascript
 /// Translate to a Gif
-client.translate('gifs', {"s": 'cool', "rating": string, "lang": string})
+client.translate('gifs', {"s": 'cool'})
   .then((response) => {
 
   })
@@ -142,7 +142,7 @@ client.translate('gifs', {"s": 'cool', "rating": string, "lang": string})
   })
 
 /// Translate to a Sticker
-client.translate('stickers', {"s": 'cool', "rating": string, "lang": string})
+client.translate('stickers', {"s": 'cool'})
   .then((response) => {
 
   })
@@ -165,7 +165,7 @@ Returns a random GIF, limited by tag. Excluding the tag parameter will return a 
 
 ```javascript
 /// Random Gif
-client.random('gifs', {"tag": string, "rating": string})
+client.random('gifs', {})
   .then((response) => {
 
   })
@@ -174,7 +174,7 @@ client.random('gifs', {"tag": string, "rating": string})
   })
   
 /// Random Sticker
-client.random('stickers', {"tag": string, "rating": string})
+client.random('stickers', {})
   .then((response) => {
 
   })
