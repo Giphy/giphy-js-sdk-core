@@ -58,6 +58,14 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 <br>
 *Required Params*
 * "q" - search query
+<br>
+*Optional Params*
+*limit - integer
+*offset - integer
+*rating - string
+*lang - string
+*fmt - string
+
 ```javascript
 /// Gif Search
 client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string})
@@ -85,6 +93,12 @@ Fetch GIFs currently trending online. Hand curated by the Giphy editorial team. 
 <br>
 *Required Params*
 * none
+<br>
+*Optional Params*
+*limit - integer
+*rating - string
+*fmt - string
+
 
 ```javascript
 /// Trending Gifs
@@ -112,6 +126,9 @@ The translate API draws on search, but uses the Giphy "special sauce" to handle 
 <br>
 *Required Params*
 * s - term you would like to translate
+<br>
+*Optional Params*
+*none
 
 ```javascript
 /// Translate to a Gif
@@ -139,6 +156,11 @@ Returns a random GIF, limited by tag. Excluding the tag parameter will return a 
 <br>
 *Required Params*
 * none
+<br>
+*Optional Params*
+*tag - string
+*rating - string
+*fmt - string
 
 ```javascript
 /// Random Gif
@@ -166,7 +188,9 @@ Returns meta data about a GIF, by GIF id. In the below example, the GIF ID is "f
 <br>
 *Required Params*
 * none
-
+<br>
+*Optional Params*
+*none
 
 ```javascript
 /// Gif by Id
@@ -183,7 +207,9 @@ client.gifById("feqkVgjJpYtjy")
 A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkVgjJpYtjy and 7rzbxdu0ZEXLy.
 *Required Params*
 * ids - array of gif ids
-
+<br>
+*Optional Params*
+*none
 ```javascript
 /// Gifs by Ids
 
@@ -202,6 +228,11 @@ Fetch Giphy categories
 <br>
 *Required Params*
 * none
+<br>
+*Optional Params*
+*limit integer
+*offset integer
+
 
 ```javascript
 /// Gifs by Ids
@@ -221,6 +252,11 @@ Get Subcategories for GIFs given a cateory. You will need this sub-category obje
 <br>
 *Required Params*
 * none
+<br>
+*Optional Params*
+*limit integer
+*offset integer
+
 
 ```javascript
 /// Gifs by Ids
@@ -240,6 +276,10 @@ Get GIFs for a given Sub-Category.
 <br>
 *Required Params*
 * none
+<br>
+*Optional Params*
+*limit integer
+*offset integer
 
 ```javascript
 /// Gifs by Ids
@@ -259,6 +299,10 @@ Get term suggestions give a search term, or a substring.
 <br>
 *Required Params*
 * none
+<br>
+*Optional Params*
+*limit integer
+
 
 ```javascript
 /// Gifs by Ids
