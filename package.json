@@ -1,12 +1,12 @@
 {
   "name": "@cosmocochrane/giphy-web-sdk-core",
-  "version": "1.0.16",
+  "version": "1.0.21",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "babel -d lib/ src/ && mocha --compilers js:babel-core/register --recursive \"./tests/**/*.spec.js\"",
     "lint": "gulp default",
-    "publish_npm": "npm run test && npm version patch && npm publish",
+    "publish_npm": "npm run test patch && npm publish",
     "build_for_npm": "gulp; babel -d lib/ src/",
     "build_for_browser": "WEBPACK_ENV=build webpack"
   },

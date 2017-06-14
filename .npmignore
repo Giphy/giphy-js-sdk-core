@@ -4,5 +4,8 @@ src/
 .npmignore
 gulpfile.js
 test.js
+tests/
+.travis.yml
+webpack.config.js
 tester.js
 out/

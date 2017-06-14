@@ -31,7 +31,6 @@ var responseFormatter = require('../utils/responseFormatter');
 //handle status code and resolve/reject promise
 function ResponseHandler(res, data, resolve, reject, endpoint) {
   //handle error status code
-
   if (res.status >= 400 && res.status <= 502) {
     reject({
       status: res && res.status ? res.status : "unknown api error",
