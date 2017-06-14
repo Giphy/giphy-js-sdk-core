@@ -196,7 +196,7 @@ client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
 ```
 
 ### Categories Endpoint
-A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkVgjJpYtjy and 7rzbxdu0ZEXLy.
+Fetch Giphy categories
 <br>
 <br>
 *Required Params*
