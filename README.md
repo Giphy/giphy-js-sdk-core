@@ -56,6 +56,9 @@ client = GphApiClient("YOUR_API_KEY")
 Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ignored.
 <br>
 <br>
+
+*Required Params*
+* "q" - search query
 *Required Params*
 * "q" - search query
 <br>
