@@ -27,8 +27,8 @@ The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/
 * [GIF by ID](#get-gif-by-id-endpoint)
 * [GIFs by IDs](#get-gifs-by-ids-endpoint)
 * [Categories for GIFs](#categories-endpoint)
-* [Subcategories for GIFs](#sub-categories-endpoint)
-* [GIFs for a Subcategory](#sub-category-content-endpoint)
+* [Subcategories for GIFs](#subcategories-endpoint)
+* [GIFs for a Subcategory](#subcategory-content-endpoint)
 * [Term Suggestions](#term-suggestions-endpoint)
 
 
