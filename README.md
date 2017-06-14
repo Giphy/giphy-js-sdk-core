@@ -61,7 +61,9 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 /// Gif Search
 client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string})
   .then((response) => {
-
+    response.data.forEach((gifObject) => {
+		  console.log(gifObject.gif)
+	  })
   })
   .catch((err) => {
 
@@ -250,7 +252,7 @@ client.gifsByCategories("tv", "'the office'", {})
   })
 ```
 
-### Term Suggestions Endpoint.
+### Term Suggestions Endpoint
 Get term suggestions give a search term, or a substring.
 <br>
 <br>
