@@ -61,11 +61,11 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 * "q" - search query
 
 *Optional Params*
-*"limit" - integer
-*"offset" - integer
-*"rating" - string
-*"lang" - string
-*"fmt" - string
+* "limit" - integer
+* "offset" - integer
+* "rating" - string
+* "lang" - string
+* "fmt" - string
 
 ```javascript
 /// Gif Search
