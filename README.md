@@ -59,10 +59,10 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 
 *Required Params*
 * "q" - search query
-<br>
+
 *Required Params*
 * "q" - search query
-<br>
+
 *Optional Params*
 *limit - integer
 *offset - integer
