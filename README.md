@@ -62,8 +62,8 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 client.search('gifs', {"q": "cats", "limit": int, "offset": int, "rating": string, "lang": string})
   .then((response) => {
     response.data.forEach((gifObject) => {
-		  console.log(gifObject.gif)
-	  })
+      console.log(gifObject.gif)
+    })
   })
   .catch((err) => {
 
