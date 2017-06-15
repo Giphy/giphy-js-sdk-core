@@ -39,6 +39,10 @@ function RequestHandler(vals, endpoint, cb) {
     });
 
     var constructedRequest = new Promise((resolve, reject) => {
+      if (vals.type && vals.type !== 'gifs' && vals.type !== 'stickers') {
+        reject("The type argument was passed in incorrectly. It should be either 'gifs' or 'stickers'")
+      }
+
       fetch(args.url + query_params_string, {
         method: args.method
       }).then((response) => { //calling the end function will send the actual request 
@@ -63,7 +67,7 @@ function RequestHandler(vals, endpoint, cb) {
           })
         }
       }).catch((err) => {
-        throw err
+        reject(err)
       })
     })
     //allows users to cancel outgoing requests

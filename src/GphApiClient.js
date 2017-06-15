@@ -63,6 +63,7 @@ class GphApiClient {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/search`,
       method: 'get',
+      type: type,
       params: _.extend({
         api_key: this.apiKey
       }, params)
@@ -86,6 +87,7 @@ class GphApiClient {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/trending`,
       method: 'get',
+      type: type,
       params: _.extend({
         api_key: this.apiKey
       }, params)
@@ -109,6 +111,7 @@ class GphApiClient {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/translate`,
       method: 'get',
+      type: type,
       params: _.extend({
         api_key: this.apiKey
       }, params)
@@ -131,6 +134,7 @@ class GphApiClient {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/random`,
       method: 'get',
+      type: type,
       params: _.extend({
         api_key: this.apiKey
       }, params)

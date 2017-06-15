@@ -63,10 +63,9 @@ describe('ERROR RESPONSES', function() {
     client.search("gif", {
       "q": "funfunfunfunnofun"
     }).then((response) => {
-
     }).catch((err) => {
-      expect(err).to.have.keys('status', 'error', 'statusText');
-      done();
+      expect(err).to.be.a('string', "The type argument was passed in incorrectly. It should be either 'gifs' or 'stickers'");
+      done()
     })
   });
 
