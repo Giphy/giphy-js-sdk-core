@@ -164,7 +164,7 @@ Returns a random GIF, limited by tag. Excluding the tag parameter will return a 
 *Optional Params*
 * "tag" - string - the GIF tag to limit randomness by
 * "rating" - string - limit results to those rated (y,g, pg, pg-13 or r).
-* fmt - (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
+* "fmt" - (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
 
 ```javascript
 /// Random Gif
