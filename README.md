@@ -302,7 +302,7 @@ Get term suggestions give a search term, or a substring.
 * none
 
 *Optional Params*
-* "limit" - integer - number of results to return, maximum 100. Default 25.
+* none
 
 
 ```javascript
