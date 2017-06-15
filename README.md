@@ -58,14 +58,15 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 <br>
 
 *Required Params*
-* "q" - search query
+* "q" - string - search query term or phrase
 
 *Optional Params*
-* "limit" - integer
-* "offset" - integer
-* "rating" - string
-* "lang" - string
-* "fmt" - string
+* "limit" - integer - number of results to return, maximum 100. Default 25.
+* "offset" - integer - results offset, defaults to 0.
+* "rating" - string - limit results to those rated (y,g, pg, pg-13 or r).
+* "lang" - string - specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported languages here
+* "fmt" - string - return results in html or json format (useful for viewing responses as GIFs to debug/test)
+* "sort" - string - the sort order of the results returned (recent | relevant)
 
 ```javascript
 /// Gif Search
@@ -96,9 +97,9 @@ Fetch GIFs currently trending online. Hand curated by the Giphy editorial team. 
 * none
 
 *Optional Params*
-* limit - integer
-* rating - string
-* fmt - string
+* "limit" - integer - number of results to return, maximum 100. Default 25.
+* "rating" - string - limit results to those rated (y,g, pg, pg-13 or r).
+* "fmt" - string - return results in html or json format (useful for viewing responses as GIFs to debug/test)
 
 
 ```javascript
@@ -126,10 +127,12 @@ The translate API draws on search, but uses the Giphy "special sauce" to handle 
 <br>
 <br>
 *Required Params*
-* s - term you would like to translate
+* "s" - string - term or phrase to translate into a GIF
 
 *Optional Params*
-* none
+* "rating" - (optional) limit results to those rated (y,g, pg, pg-13 or r).
+* "lang" - (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported langauges here
+* "fmt" - (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
 
 ```javascript
 /// Translate to a Gif
@@ -159,9 +162,9 @@ Returns a random GIF, limited by tag. Excluding the tag parameter will return a 
 * none
 
 *Optional Params*
-* "tag" - string
-* "rating" - string
-* "fmt" - string
+* "tag" - string - the GIF tag to limit randomness by
+* "rating" - string - limit results to those rated (y,g, pg, pg-13 or r).
+* fmt - (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
 
 ```javascript
 /// Random Gif
@@ -207,7 +210,7 @@ client.gifById("feqkVgjJpYtjy")
 ### Get GIFs by IDs Endpoint
 A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkVgjJpYtjy and 7rzbxdu0ZEXLy.
 *Required Params*
-* ids - array of gif ids
+* "ids" - a comma separated list of IDs to fetch GIF size data.
 
 *Optional Params*
 * none
@@ -231,8 +234,8 @@ Fetch Giphy categories
 * none
 
 *Optional Params*
-* "limit" - integer
-* "offset" - integer
+* "limit" - integer - number of results to return, maximum 100. Default 25.
+* "offset" - integer - results offset, defaults to 0.
 
 
 ```javascript
@@ -255,8 +258,8 @@ Get Subcategories for GIFs given a cateory. You will need this sub-category obje
 * none
 
 *Optional Params*
-* "limit" - integer
-* "offset" - integer
+* "limit" - integer - number of results to return, maximum 100. Default 25.
+* "offset" - integer - results offset, defaults to 0.
 
 
 ```javascript
@@ -279,8 +282,8 @@ Get GIFs for a given Sub-Category.
 * none
 
 *Optional Params*
-* "limit" - integer
-* "offset" - integer
+* "limit" - integer - number of results to return, maximum 100. Default 25.
+* "offset" - integer - results offset, defaults to 0.
 
 ```javascript
 /// Gifs by Ids
@@ -302,7 +305,7 @@ Get term suggestions give a search term, or a substring.
 * none
 
 *Optional Params*
-* "limit" - integer
+* "limit" - integer - number of results to return, maximum 100. Default 25.
 
 
 ```javascript
