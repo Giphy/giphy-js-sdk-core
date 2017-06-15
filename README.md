@@ -64,7 +64,7 @@ Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ign
 * "limit" - integer - number of results to return, maximum 100. Default 25.
 * "offset" - integer - results offset, defaults to 0.
 * "rating" - string - limit results to those rated (y,g, pg, pg-13 or r).
-* "lang" - string - specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported languages here
+* "lang" - string - specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported languages [here](https://github.com/Giphy/GiphyAPI/blob/master/README.md#language-support)
 * "fmt" - string - return results in html or json format (useful for viewing responses as GIFs to debug/test)
 * "sort" - string - the sort order of the results returned (recent | relevant)
 
@@ -131,7 +131,7 @@ The translate API draws on search, but uses the Giphy "special sauce" to handle 
 
 *Optional Params*
 * "rating" - (optional) limit results to those rated (y,g, pg, pg-13 or r).
-* "lang" - (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported langauges here
+* "lang" - (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code. See list of supported langauges [here](#language-support)
 * "fmt" - (optional) return results in html or json format (useful for viewing responses as GIFs to debug/test)
 
 ```javascript
