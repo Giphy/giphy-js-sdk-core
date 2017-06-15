@@ -41,10 +41,7 @@ npm
 ```shell
 npm install --save giphy-web-sdk-core
 ```
-In a browser 
-```html
-<script src="GphApiClient.js"></script>
-```
+
 ### Initialize Giphy SDK
 
 ```javascript
