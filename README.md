@@ -295,7 +295,7 @@ client.gifsByCategories("tv", "'the office'", {})
 ```
 
 ### Term Suggestions Endpoint
-Get term suggestions give a search term, or a substring.
+Get term suggestions given a search term, or a substring.
 <br>
 <br>
 *Required Params*
