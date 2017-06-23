@@ -248,7 +248,7 @@ client.categoriesForGifs({})
 ```
 
 ### Subcategories Endpoint
-Get Subcategories for GIFs given a cateory. You will need this sub-category object to pull GIFs for this category.
+Get Subcategories for GIFs given a category. You will need this subcategory object to pull GIFs for this category.
 <br>
 <br>
 *Required Params*
