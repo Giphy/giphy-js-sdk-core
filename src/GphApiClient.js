@@ -16,6 +16,8 @@ var serverUrl = "https://api.giphy.com";
 /**
  * Class representing the networking client.
  */
+
+ 
 class GphApiClient {
 
   constructor(apiKey) {
