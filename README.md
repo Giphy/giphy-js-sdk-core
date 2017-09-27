@@ -7,7 +7,7 @@ The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/
 
 [license-url]: LICENSE.md
 [downloads-image]: https://img.shields.io/npm/dm/giphycore.svg?style=flat-square
-[downloads-url]: http://npm-stat.com/charts.html?package=giphy-web-sdk-core
+[downloads-url]: http://npm-stat.com/charts.html?package=giphy-js-sdk-core
 [version-svg]: https://img.shields.io/npm/v/giphycore.svg?style=flat-square
 [package-url]: https://npmjs.org/package/giphy-js-sdk-core
 
