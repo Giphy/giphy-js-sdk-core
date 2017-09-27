@@ -5,6 +5,7 @@ src/
 gulpfile.js
 test.js
 tests/
+build_for_browser/
 .travis.yml
 webpack.config.js
 tester.js
