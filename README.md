@@ -248,7 +248,7 @@ client.categoriesForGifs({})
 ```
 
 ### Subcategories Endpoint
-Get Subcategories for GIFs given a cateory. You will need this sub-category object to pull GIFs for this category.
+Get Subcategories for GIFs given a category. You will need this subcategory object to pull GIFs for this category.
 <br>
 <br>
 *Required Params*
@@ -295,7 +295,7 @@ client.gifsByCategories("tv", "'the office'", {})
 ```
 
 ### Term Suggestions Endpoint
-Get term suggestions give a search term, or a substring.
+Get term suggestions given a search term, or a substring.
 <br>
 <br>
 *Required Params*
