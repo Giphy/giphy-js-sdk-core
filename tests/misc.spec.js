@@ -1,5 +1,5 @@
 /*
- * Created by Bogdan Tirca on 4/21/17.
+ * Created by Cosmo Cochrane on 4/20/17.
  * Copyright (c) 2017 Giphy Inc.
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
