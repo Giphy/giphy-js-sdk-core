@@ -39,13 +39,13 @@ The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/
 
 npm
 ```shell
-npm install --save giphy-web-sdk-core
+npm install --save giphy-js-sdk-core
 ```
 
 ### Initialize Giphy SDK
 
 ```javascript
-var GphApiClient = require('giphy-web-sdk-core')
+var GphApiClient = require('giphy-js-sdk-core')
 client = GphApiClient("YOUR_API_KEY")
 ```
 
