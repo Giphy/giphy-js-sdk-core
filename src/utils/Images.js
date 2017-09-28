@@ -20,7 +20,7 @@ var Images = function(data, id) {
     fixed_width_downsampled: data.fixed_width_downsampled ? Image(data.fixed_width_downsampled, id, 'fixed_width_downsampled') : null,
     fixed_height_small: data.fixed_height_small ? Image(data.fixed_height_small, id, 'fixed_height_small') : null,
     fixed_height_small_still: data.fixed_height_small_still ? Image(data.fixed_height_small_still, id, 'fixed_height_small_still') : null,
-    fixed_width_small: data.fixed_width_small ? Image(data.fixed_width_small, id, 'fixed_width_small') : Image({} ,id, 'fixed_width_small'),
+    fixed_width_small: data.fixed_width_small ? Image(data.fixed_width_small, id, 'fixed_width_small') : Image({}, id, 'fixed_width_small'),
     fixed_width_small_still: data.fixed_width_small_still ? Image(data.fixed_width_small_still, id, 'fixed_width_small_still') : null,
     downsized: data.downsized ? Image(data.downsized, id, 'downsized') : null,
     downsized_still: data.downsized_still ? Image(data.downsized_still, id, 'downsized_still') : null,
