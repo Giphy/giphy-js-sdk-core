@@ -194,7 +194,7 @@ Returns meta data about a GIF, by GIF id. In the below example, the GIF ID is "f
 
 ```javascript
 /// Gif by Id
-client.gifById("feqkVgjJpYtjy")
+client.gifByID("feqkVgjJpYtjy")
   .then((response) => {
 
   })
@@ -213,7 +213,7 @@ A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkV
 ```javascript
 /// Gifs by Ids
 
-client.gifsByIds({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
+client.gifsByIDs({"ids": ["feqkVgjJpYtjy", "7rzbxdu0ZEXLy"]})
   .then((response) => {
 
   })
