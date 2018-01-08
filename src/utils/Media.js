@@ -32,6 +32,7 @@ var Media = function(data) {
     create_datetime: data.create_datetime ? new Date(data.create_datetime) : null,
     import_datetime: data.import_datetime ? new Date(data.import_datetime) : null,
     trending_datetime: data.trending_datetime ? new Date(data.trending_datetime) : null,
+    title: data.title ? data.title : null,
     is_hidden: data.is_hidden ? true : false,
     is_removed: data.is_removed ? true : false,
     is_community: data.is_community ? true : false,
