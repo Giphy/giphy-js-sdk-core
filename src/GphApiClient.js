@@ -7,28 +7,24 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-var _ = require('lodash');
-var RequestHandler = require('./handlers/RequestHandler');
-
-
-var serverUrl = "https://api.giphy.com";
+var _ = require('lodash')
+var RequestHandler = require('./handlers/RequestHandler')
+var serverUrl = 'https://api.giphy.com'
 
 /**
  * Class representing the networking client.
  */
 
-
 class GphApiClient {
-
   constructor(apiKey) {
-    this.apiKey = apiKey;
+    this.apiKey = apiKey
   }
 
   /**
    * Initialize the SDK by passing in the apiKey.
    */
   setCredentials(apiKey) {
-    this.apiKey = apiKey;
+    this.apiKey = apiKey
   }
 
   /**
@@ -43,18 +39,19 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   search(type, params, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/search`,
       method: 'get',
       type: type,
       params: _.extend({
-        api_key: this.apiKey
-      }, params)
+          api_key: this.apiKey
+        },
+        params
+      )
     }
 
-    return RequestHandler(data, 'search', cb);
+    return RequestHandler(data, 'search', cb)
   }
 
   /**
@@ -67,18 +64,19 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   trending(type, params, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/trending`,
       method: 'get',
       type: type,
       params: _.extend({
-        api_key: this.apiKey
-      }, params)
+          api_key: this.apiKey
+        },
+        params
+      )
     }
 
-    return RequestHandler(data, 'trending', cb);
+    return RequestHandler(data, 'trending', cb)
   }
 
   /**
@@ -86,23 +84,24 @@ class GphApiClient {
    * @param {String} type specify whether it is a gif or a sticker
    * @param {Object} params an object containing parameters
    * @param {String} params.s (optional) the term you would like to have translated
-   * @param {String} params.rating (optional) @type string limit results to those rated (y,g, pg, pg-13 or r).   
+   * @param {String} params.rating (optional) @type string limit results to those rated (y,g, pg, pg-13 or r).
    * @param {String} params.lang (optional) specify default country for regional content; format is 2-letter ISO 639-1 country code
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   translate(type, params, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/translate`,
       method: 'get',
       type: type,
       params: _.extend({
-        api_key: this.apiKey
-      }, params)
+          api_key: this.apiKey
+        },
+        params
+      )
     }
 
-    return RequestHandler(data, 'translate', cb);
+    return RequestHandler(data, 'translate', cb)
   }
 
   /**
@@ -114,18 +113,19 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   random(type, params, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/${type}/random`,
       method: 'get',
       type: type,
       params: _.extend({
-        api_key: this.apiKey
-      }, params)
+          api_key: this.apiKey
+        },
+        params
+      )
     }
 
-    return RequestHandler(data, 'random', cb);
+    return RequestHandler(data, 'random', cb)
   }
 
   /**
@@ -134,7 +134,6 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   gifByID(id, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/gifs/${id}`,
@@ -144,7 +143,7 @@ class GphApiClient {
       }
     }
 
-    return RequestHandler(data, 'gifByID', cb);
+    return RequestHandler(data, 'gifByID', cb)
   }
 
   /**
@@ -154,20 +153,21 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   gifsByIDs(params, cb) {
-
     //separate teh array into a string of separated values as superagent needs special formatting for array params
-    params.ids = params.ids.join(',');
+    params.ids = params.ids.join(',')
 
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/gifs`,
       method: 'get',
       params: _.extend({
-        api_key: this.apiKey
-      }, params)
+          api_key: this.apiKey
+        },
+        params
+      )
     }
 
-    return RequestHandler(data, 'gifsByIDs', cb);
+    return RequestHandler(data, 'gifsByIDs', cb)
   }
 
   /**
@@ -179,17 +179,18 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   categoriesForGifs(params, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/gifs/categories`,
       method: 'get',
       params: _.extend({
-        api_key: this.apiKey
-      }, params)
+          api_key: this.apiKey
+        },
+        params
+      )
     }
 
-    return RequestHandler(data, 'categoriesForGifs', cb);
+    return RequestHandler(data, 'categoriesForGifs', cb)
   }
 
   /**
@@ -201,17 +202,18 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   subCategoriesForGifs(subcategory, params, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/gifs/categories/${subcategory}`,
       method: 'get',
       params: _.extend({
-        api_key: this.apiKey
-      }, params)
+          api_key: this.apiKey
+        },
+        params
+      )
     }
 
-    return RequestHandler(data, 'subCategoriesForGifs', cb);
+    return RequestHandler(data, 'subCategoriesForGifs', cb)
   }
 
   /**
@@ -224,17 +226,18 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   gifsByCategories(category, subcategory, params, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/gifs/categories/${category}/${subcategory}`,
       method: 'get',
       params: _.extend({
-        api_key: this.apiKey
-      }, params)
+          api_key: this.apiKey
+        },
+        params
+      )
     }
 
-    return RequestHandler(data, 'gifsByCategories', cb);
+    return RequestHandler(data, 'gifsByCategories', cb)
   }
 
   /**
@@ -243,7 +246,6 @@ class GphApiClient {
    * @param {Function} callback (optional) callback will default to a promise if nothing is passed in
    */
   termSuggestions(term, cb) {
-
     const data = {
       //grabs the correct endpoint from an object
       url: `${serverUrl}/v1/queries/suggest/${term}`,
@@ -253,10 +255,10 @@ class GphApiClient {
       })
     }
 
-    return RequestHandler(data, 'termSuggestions', cb);
+    return RequestHandler(data, 'termSuggestions', cb)
   }
 }
 
 module.exports = function(apiKey) {
-  return new GphApiClient(apiKey);
+  return new GphApiClient(apiKey)
 }

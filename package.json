@@ -16,7 +16,9 @@
     "es6-promise": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
-    "promise": "^7.1.1"
+    "promise": "^7.1.1",
+    "unfetch": "^3.0.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

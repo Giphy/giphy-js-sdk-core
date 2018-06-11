@@ -6,6 +6,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-'use strict';
+'use strict'
+var apiClient = require('./src/GphApiClient.js')
+var analyticsSDK = require('./src/GphAnalytics.js')
 
-module.exports = require('./lib/GphApiClient');
+module.exports = { apiClient: apiClient, analyticsSDK: analyticsSDK }
