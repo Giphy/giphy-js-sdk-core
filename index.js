@@ -7,7 +7,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 'use strict'
-var apiClient = require('./src/GphApiClient.js')
-var analyticsSDK = require('./src/GphAnalytics.js')
+var apiClient = require('./lib/GphApiClient.js')
+var analyticsSDK = require('./lib/GphAnalytics.js')
 
 module.exports = { apiClient: apiClient, analyticsSDK: analyticsSDK }
