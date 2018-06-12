@@ -65,9 +65,10 @@ class GphAnalytics {
 
     fetchPingbackRequest(endpoint, action, userId) {
         if (!eventTypes[endpoint]) {
-            return new Error(
-                "Endpoint variable does not match one of the following acceptable endpoints: 'search', 'trending', 'related' or 'reactions'"
-            )
+            throw `GIPHY ANALYTICS SDK ERROR IN on${action.action_type.charAt(0).toUpperCase() +
+                action.action_type.slice(
+                    1
+                )} METHOD \n \tEndpoint argument '${endpoint}' does not match one of the following acceptable variables: 'search', 'trending', 'related' or 'reactions'`
         }
         // if there are no actions lined up inside this pingbackType do nothing
         const session = this.createSession(endpoint, action, userId)
