@@ -100,7 +100,7 @@ class GphAnalytics {
                     {
                         event_type: eventTypes[endpoint],
                         response_id: responseId,
-                        actions: action
+                        actions: [action]
                     }
                 ]
             }
