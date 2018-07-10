@@ -30,6 +30,7 @@ var Images = function(data, id) {
     original_still: data.original_still ? Image(data.original_still, id, 'original_still') : null,
     looping: data.looping ? Image(data.looping, id, 'looping') : null,
     preview: data.preview ? Image(data.preview, id, 'preview') : null,
+    preview_gif: data.preview_gif ? Image(data.preview_gif, id, 'preview_gif') : null,
     downsized_small: data.downsized_small ? Image(data.downsized_small, id, 'downsized_small') : null
   })
 }
