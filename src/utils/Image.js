@@ -7,19 +7,29 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+/**
+ * Custom Image object.
+ *
+ * @param {object} data
+ * @param {string} id
+ * @param {string} rendition_type
+ * 
+ * @returns {object} Object containing API Image object, id from GIF 
+ * object and rendition type.
+ */
 var Image = function(data, id, rendition_type) {
   return ({
     media_id: id ? id : null,
     rendition_type: rendition_type ? rendition_type : null,
-    gif_url: data.url ? data.url : null,
+    url: data.url ? data.url : null,
     width: data.width ? data.width : null,
     height: data.height ? data.height : null,
-    gif_size: data.size ? data.size : null,
+    size: data.size ? data.size : null,
     frames: data.frames ? data.frames : null,
-    mp4_url: data.mp4 ? data.mp4 : null,
+    mp4: data.mp4 ? data.mp4 : null,
     mp4_size: data.mp4_size ? data.mp4_size : null,
-    webp_url: data.webp ? data.webp : null,
-    webp_size: data.webp_size ? data.webp_size : null
+    webp: data.webp ? data.webp : null,
+    webp_size: data.webp_size ? data.webp_size : null,
   })
 }
 
