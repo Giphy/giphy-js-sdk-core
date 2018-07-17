@@ -20,6 +20,9 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
+**Reproducible Demo**
+Let us know how to reproduce the issue. Include a code sample or share a project that reproduces the issue. Please follow the guidelines for providing a MCVE: https://stackoverflow.com/help/mcve
+
 **Desktop (please complete the following information):**
  - OS: [e.g. iOS]
  - Browser [e.g. chrome, safari]
