@@ -15,5 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Security` - vulnerabilities.
 
 ## [Unreleased]
+### Changed
+- Update `Image` object to match [GIPHY API](https://developers.giphy.com/docs/#images-object) [#29](https://github.com/Giphy/giphy-js-sdk-core/pull/29).
 
-[Unreleased]: https://github.com/Giphy/giphy-js-sdk-core/compare/...HEAD
+[Unreleased]: https://github.com/Giphy/giphy-js-sdk-core/compare/v1.0.5...HEAD
