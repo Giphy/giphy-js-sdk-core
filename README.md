@@ -94,6 +94,7 @@ Fetch GIFs currently trending online. Hand curated by the Giphy editorial team. 
 
 *Optional Params*
 * "limit" - integer - number of results to return, maximum 100. Default 25.
+* "offset" - integer - results offset, defaults to 0
 * "rating" - string - limit results to those rated (y,g, pg, pg-13 or r).
 * "fmt" - string - return results in html or json format (useful for viewing responses as GIFs to debug/test)
 
