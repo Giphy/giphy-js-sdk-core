@@ -9,7 +9,7 @@
 
 var ResponseHandler = require('./ResponseHandler');
 require('es6-promise').polyfill();
-if(typeof fetch === 'undefined') {
+if (typeof fetch === 'undefined') {
   require('isomorphic-fetch');
 }
 
