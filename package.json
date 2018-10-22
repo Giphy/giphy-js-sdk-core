@@ -1,6 +1,6 @@
 {
     "name": "giphy-js-sdk-core",
-    "version": "1.0.05",
+    "version": "1.0.06",
     "description": "",
     "main": "index.js",
     "scripts": {
