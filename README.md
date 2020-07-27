@@ -1,9 +1,10 @@
-# Giphy Core SDK for JS
+# Giphy Core SDK for JS (deprecated)
+
+> This package is deprecated, please use our [fetch api package](https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md) as a wrapper around [Giphy API](https://github.com/Giphy/GiphyAPI). It contains typescript definitions and should be a better experience, if we're missing a feature, please feel free to file an issue on the [monorepo](https://github.com/Giphy/giphy-js). 
+
+> Also check out the new UI packages for [React](https://github.com/Giphy/giphy-js/blob/master/packages/react-components/README.md) and [vanilla JS](https://github.com/Giphy/giphy-js/blob/master/packages/components/README.md), they can greatly facitilate your GIPHY integration.
 
 The **Giphy Core SDK** is a wrapper around [Giphy API](https://github.com/Giphy/GiphyAPI).
-
-![Build Status](https://travis-ci.com/Giphy/giphy-js-sdk-core.svg?token=ytpQbMSuy8sydsqZwbwp&branch=master&style=flat-square)   [![npm version](https://badge.fury.io/js/giphy-js-sdk-core.svg)](https://badge.fury.io/js/giphy-js-sdk-core) [![Downloads][downloads-image]][downloads-url]
-
 
 [license-url]: LICENSE.md
 [downloads-image]: https://img.shields.io/npm/dm/giphy-js-sdk-core.svg?style=flat-square
